@@ -1,0 +1,102 @@
+<img src="{{ additionally.background.url }}">
+
+{% if name_accessoires720 %}
+    <img src="{{ name_accessoires720.element2.url }}">
+{% endif %}
+
+{% if antenna720.element2 %}
+    <img src="{{ antenna720.element2.url }}">
+{% endif %}
+
+<img id="mask-get-720" src="{{ name720.element2.url }}">
+
+{% if mouth_accessoires720 and mouth_accessoires720.id == 1 or mouth_accessoires720.id == 5 %}
+    <img id="mask-720-1" src="{{ mouth_accessoires720.element1.url }}">
+
+    {% if mouth_accessoires720.id == 1 %}
+        <img src="{{ name720.element3.url }}">
+    {% endif %}
+
+{% endif %}
+
+<img src="{{ name720.element1.url }}">
+
+{% if mouth_accessoires720 and mouth_accessoires720.id != 1 and mouth_accessoires720.id != 5 %}
+    <img src="{{ mouth_accessoires720.element1.url }}">
+{% endif %}
+
+<img id="mask-720-4" src="{{ mouth720.element1.url }}">
+
+{% if not eyes_accessoires720 %}
+    <img src="{{ eyes720.element1.url }}">
+{% endif %}
+
+{% if antenna720.id == 21 or antenna720.id == 22 or antenna720.id == 26 or antenna720.id == 36 or antenna720.id == 34 or antenna720.id == 9 %}
+    <img id="mask-720-3" src="{{ antenna720.element1.url }}">
+{% else %}
+    <img src="{{ antenna720.element1.url }}">
+{% endif %}
+
+{% if eyes_accessoires720 %}
+
+    {% if eyes_accessoires720.id == 1 %}
+        <img src="{{ eyes720.element1.url }}">
+    {% endif %}
+
+    {% if eyes_accessoires720.id == 3 %}
+        <img id="mask-720-2" src="{{ eyes_accessoires720.element1.url }}">
+    {% else %}
+        <img src="{{ eyes_accessoires720.element1.url }}">
+    {% endif %}
+{% endif %}
+
+{% if rare_accessoires720 %}
+    <img src="{{ rare_accessoires720.element1.url }}">
+{% endif %}
+
+{% if name_accessoires720 %}
+    <img src="{{ name_accessoires720.element1.url }}">
+{% endif %}
+
+{% if frame_type == 1 %}
+    <img id="bot-frame-square" src="{{ additionally.frame.url }}">
+{% else %}
+    <img id="bot-frame-round" src="{{ additionally.frame.url }}">
+{% endif %}
+
+
+<script>
+
+    var maskElement = document.getElementById('mask-720-1');
+    var maskElementGet = document.getElementById('mask-get-720');
+    var imageUrl = maskElementGet.getAttribute('src');
+    maskElement.style.webkitMaskImage = 'url(' + imageUrl + ')';
+
+</script>
+
+<script>
+
+    var maskElement = document.getElementById('mask-720-2');
+    var maskElementGet = document.getElementById('mask-get-720');
+    var imageUrl = maskElementGet.getAttribute('src');
+    maskElement.style.webkitMaskImage = 'url(' + imageUrl + ')';
+
+</script>
+
+<script>
+
+    var maskElement = document.getElementById('mask-720-3');
+    var maskElementGet = document.getElementById('mask-get-720');
+    var imageUrl = maskElementGet.getAttribute('src');
+    maskElement.style.webkitMaskImage = 'url(' + imageUrl + ')';
+
+</script>
+
+<script>
+
+    var maskElement = document.getElementById('mask-720-4');
+    var maskElementGet = document.getElementById('mask-get-720');
+    var imageUrl = maskElementGet.getAttribute('src');
+    maskElement.style.webkitMaskImage = 'url(' + imageUrl + ')';
+
+</script>

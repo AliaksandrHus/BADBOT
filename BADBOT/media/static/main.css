@@ -1,0 +1,752 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed'); /* 'Ubuntu Condensed' */
+@import url('https://fonts.cdnfonts.com/css/cinematografica');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@200&display=swap'); /* 'Exo 2' */
+@import url('https://fonts.googleapis.com/css2?family=Exo&display=swap'); /* 'Exo' */
+
+
+/* Шапка ------------------------------------------------------------- */
+
+/* Шапка общие элементы --------------------------- */
+
+/* Шапка общее */
+.hat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Шапка закругленная линия - активная */
+#act_144_bg-line1, #act_720_bg-line1 {
+    width: 1200px;
+}
+
+/* Шапка закругленная линия - не активная */
+#act_144_bg-line2, #act_720_bg-line2 {
+    position: absolute;
+    opacity: 0;
+    width: 1200px;
+}
+
+/* Шапка фон-изображение */
+#act_144_bg-img, #act_720_bg-img {
+    position: absolute;
+    width: 1200px;
+}
+
+/* Шапка лого-текст */
+#act_144_logo-txt, #act_720_logo-txt {
+    top: 203px;
+    position: absolute;
+    width: 110px;
+}
+
+
+/* Шапка лого-картинка ---------------------------- */
+
+/* Контейнер лого-картинки */
+.bot-logo-round, .bot-logo-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Элементы лого-бота PNG - квадратная рамка */
+.bot-logo-square img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    top: 110px;
+    width: 150px;
+    height: 150px;
+    clip-path: inset(5px 5px 5px 5px round 30px);
+    /* box-shadow: inset 0 0 0 8px RGB(48, 48, 48); */
+    border-radius: 34px;
+}
+
+/* Элементы лого-бота PNG - круглая рамка */
+.bot-logo-round img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    top: 110px;
+    width: 150px;
+    height: 150px;
+    clip-path: inset(0px 0px 0px 0px round 1px);
+    border-radius: 100px;
+}
+
+/* Элементы лого-бота PNG - квадратная рамка */
+.bot-logo-square #bot-frame-square {
+    width: 151px;
+    height: 151px;
+    box-shadow: inset 0 0 0 8px RGB(48, 48, 48);
+}
+
+/* Элементы лого-бота PNG - круглая рамка */
+.bot-logo-round #bot-frame-round {
+    width: 151px;
+    height: 151px;
+    box-shadow: inset 0 0 0 3px RGB(48, 48, 48);
+}
+
+
+/* Шапка элементы 144 ----------------------------- */
+
+/* Горизонтальная линия */
+.line-blue {
+    border-bottom: 5px solid RGB(0, 157, 224); /* Параметры линии */
+    border-radius: 10px; /* Задает закругление углов линии */
+}
+
+/* Кнопка-картинка не активная */
+#act_144_but-720-red, #act_144_but-720-gray {
+    top: 218px;
+    margin-left: 216px;
+    position: absolute;
+    width: 50px;
+}
+
+/* Кнопка-картинка не активная */
+#act_144_but-720-red {
+    opacity: 0;
+}
+
+/* Кнопка-картинка активная */
+#act_144_but-144-blue, #act_144_but-144-gray {
+    top: 218px;
+    margin-left: -216px;
+    position: absolute;
+    width: 50px;
+}
+
+/* Кнопка 720 */
+#act_144_button-720 {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Кнопка 720 */
+#act_144_button-720 img {
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+    top: 218px;
+    margin-left: -517px;
+    position: absolute;
+    width: 50px;
+    opacity: 0;
+}
+
+/* Кнопка 144 */
+#act_144_button-144 {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Кнопка 144 */
+#act_144_button-144 img {
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+    top: 218px;
+    margin-left: -733px;
+    position: absolute;
+    width: 50px;
+    opacity: 0;
+}
+
+
+/* Шапка элементы 720 ----------------------------- */
+
+/* Горизонтальная линия */
+.line-red {
+    border-bottom: 5px solid RGB(226, 0, 26); /* Параметры линии */
+    border-radius: 10px; /* Задает закругление углов линии */
+}
+
+/* Кнопка-картинка активная */
+#act_720_but-720-red, #act_720_but-720-gray {
+    top: 218px;
+    margin-left: 216px;
+    position: absolute;
+    width: 50px;
+}
+
+/* Кнопка-картинка не активная */
+#act_720_but-144-blue, #act_720_but-144-gray {
+    top: 218px;
+    margin-left: -216px;
+    position: absolute;
+    width: 50px;
+}
+
+/* Кнопка-картинка не активная */
+#act_720_but-144-blue {
+    opacity: 0;
+}
+
+/* Кнопка 720 */
+#act_720_button-720 {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Кнопка 720 */
+#act_720_button-720 img {
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+    top: 218px;
+    margin-left: -517px;
+    position: absolute;
+    width: 50px;
+    opacity: 0;
+}
+
+/* Кнопка 144 */
+#act_720_button-144 {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Кнопка 144 */
+#act_720_button-144 img {
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+    top: 218px;
+    margin-left: -733px;
+    position: absolute;
+    width: 50px;
+    opacity: 0;
+}
+
+
+/* Шапка раздел создать ---------------------------------------------- */
+
+/* Шапка общие элементы --------------------------- */
+
+/* Шапка лого-текст */
+#act_144_logo-txt-big, #act_720_logo-txt-big {
+    top: 480px;
+    position: absolute;
+    width: 110px;
+}
+
+/* Шапка лого-текст */
+#act_144_logo-txt, #act_720_logo-txt {
+    top: 203px;
+    position: absolute;
+    width: 110px;
+}
+
+/* Шапка элементы 144 ----------------------------- */
+
+/* Горизонтальная линия */
+.line-blue {
+    border-bottom: 5px solid RGB(0, 157, 224); /* Параметры линии */
+    border-radius: 10px; /* Задает закругление углов линии */
+}
+
+/* Кнопка-картинка не активная */
+#act_144_but-720-red-big, #act_144_but-720-gray-big {
+    top: 495px;
+    margin-left: 216px;
+    position: absolute;
+    width: 50px;
+}
+
+/* Кнопка-картинка не активная */
+#act_144_but-720-red-big {
+    opacity: 0;
+}
+
+/* Кнопка-картинка активная */
+#act_144_but-144-blue-big, #act_144_but-144-gray-big {
+    top: 495px;
+    margin-left: -216px;
+    position: absolute;
+    width: 50px;
+}
+
+/* Кнопка 720 */
+#act_144_button-720-big {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Кнопка 720 */
+#act_144_button-720-big img {
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+    top: 495px;
+    margin-left: -517px;
+    position: absolute;
+    width: 50px;
+    opacity: 0;
+}
+
+/* Кнопка 144 */
+#act_144_button-144-big {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Кнопка 144 */
+#act_144_button-144-big img {
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+    top: 495px;
+    margin-left: -733px;
+    position: absolute;
+    width: 50px;
+    opacity: 0;
+}
+
+
+/* Шапка элементы 720 ----------------------------- */
+
+/* Горизонтальная линия */
+.line-red {
+    border-bottom: 5px solid RGB(226, 0, 26); /* Параметры линии */
+    border-radius: 10px; /* Задает закругление углов линии */
+}
+
+/* Кнопка-картинка активная */
+#act_720_but-720-red-big, #act_720_but-720-gray-big {
+    top: 495px;
+    margin-left: 216px;
+    position: absolute;
+    width: 50px;
+}
+
+/* Кнопка-картинка не активная */
+#act_720_but-144-blue-big, #act_720_but-144-gray-big {
+    top: 495px;
+    margin-left: -216px;
+    position: absolute;
+    width: 50px;
+}
+
+/* Кнопка-картинка не активная */
+#act_720_but-144-blue-big {
+    opacity: 0;
+}
+
+/* Кнопка 720 */
+#act_720_button-720-big {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Кнопка 720 */
+#act_720_button-720-big img {
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+    top: 495px;
+    margin-left: -517px;
+    position: absolute;
+    width: 50px;
+    opacity: 0;
+}
+
+/* Кнопка 144 */
+#act_720_button-144-big {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Кнопка 144 */
+#act_720_button-144-big img {
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+    top: 495px;
+    margin-left: -733px;
+    position: absolute;
+    width: 50px;
+    opacity: 0;
+}
+
+
+/* Создать бота ------------------------------------------------------ */
+
+/* Изображение бота ------------------------------- */
+
+/* Контейнер картинки */
+.bot-create-round, .bot-create-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Элементы бота PNG - квадратная рамка */
+.bot-create-square img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    top: 240px;
+    width: 400px;
+    height: 400px;
+    clip-path: inset(20px 20px 20px 20px round 60px);
+    border-radius: 80px;
+}
+
+/* Элементы бота PNG - круглая рамка */
+.bot-create-round img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    top: 240px;
+    width: 400px;
+    height: 400px;
+    clip-path: inset(0px 0px 0px 0px round 200px);
+    border-radius: 200px;
+}
+
+.bot-create-square #bot-frame-square {
+    width: 401px;
+    height: 401px;
+    box-shadow: inset 0 0 0 22px RGB(48, 48, 48);
+}
+
+.bot-create-round #bot-frame-round {
+    width: 401px;
+    height: 401px;
+    box-shadow: inset 0 0 0 2px RGB(48, 48, 48);
+}
+
+
+/* Кнопки и рамка создание бота ------------------- */
+
+/* Контейнер всех кнопок создать бота */
+.button-create {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: absolute;
+    right: 50%;
+    transform: translateX(350px);
+    top: 106px;
+    height: 300px;
+}
+
+/* Контейнер кнопок в линию */
+.button-row {
+    display: flex;
+    margin-top: 3px;
+}
+
+/* Кнопка предыдущий элемент */
+.btn-back {
+    width: 10px;
+    height: 30px;
+    background: RGB(48, 48, 48);
+    color: #fff;
+    padding: 10px 10px;
+    border: 0;
+    border-radius: 5px;
+    position: relative;
+    line-height: 10px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+/* Кнопка предыдущий элемент - стрелочка */
+.btn-back::before {
+    content: '';
+    display: block;
+    border-right: 15px solid RGB(48, 48, 48);
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    position: absolute;
+    left: -12px;
+    top: 0;
+}
+
+/* Кнопка предыдущий элемент - линия */
+.btn-back::after {
+    content: '';
+    width: 60px;
+    height: 2px;
+    background: RGB(48, 48, 48); /* Цвет линии, такой же как у кнопки */
+    position: absolute;
+    left: -40px;
+    bottom: 0; /* Расположение линии в середине кнопки */
+    transform: translateX(-50%); /* Смещение линии на 50% ширины кнопки влево */
+    top: 14px;
+}
+
+/* Кнопка следующий элемент */
+.btn-forward {
+    font-family: 'Exo 2', sans-serif;
+    width: 104px;
+    height: 30px;
+    background: RGB(48, 48, 48);
+    color: #fff;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 5px;
+    position: relative;
+    line-height: 10px;
+    font-size: 10px;
+    cursor: pointer;
+    left: 3px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/* Кнопка следующий элемент - стрелочка */
+.btn-forward::before {
+    content: '';
+    display: block;
+    border-left: 15px solid RGB(48, 48, 48);
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    position: absolute;
+    right: -12px;
+    top: 0;
+}
+
+/* Прямоугольник характеристики бота */
+.rounded-rectangle {
+    width: 300px; /* Ширина вашего прямоугольника */
+    height: 261px; /* Высота вашего прямоугольника */
+    border-radius: 20px; /* Закругление углов */
+    background-color: RGB(48, 48, 48); /* Цвет фона */
+    position: absolute; /* Абсолютное позиционирование для задания координат */
+    margin-left: -430px;
+    /* left: 355px; */
+    top: 109px; /* Вертикальная координата (по оси Y) */
+}
+
+/* Прямоугольник характеристики бота - текст P */
+.rounded-rectangle p {
+    font-family: 'Exo 2', sans-serif;
+    color: rgb(204, 204, 204);
+    font-size: 12px;
+    margin-top: -13px;
+    margin-left: 20px;
+}
+
+/* Прямоугольник характеристики бота - текст P акссесуаров */
+.btn-delete-accessory p {
+    font-family: 'Exo 2', sans-serif;
+    color: rgb(204, 204, 204);
+    font-size: 12px;
+    margin-top: -13px;
+    margin-left: 20px;
+}
+
+/* Прямоугольник характеристики бота - текст H3 */
+.rounded-rectangle h3 {
+    font-family: 'Exo', sans-serif;
+    color: #fff;
+    font-size: 12px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#rounded-rectangle-h3 {
+    margin-top: 0px;
+}
+
+/* Кнопка скачать бота 144 */
+.btn-download-144 {
+    font-family: 'Exo 2', sans-serif;
+    width: 380px;
+    height: 24px;
+    background: rgb(0, 157, 224);
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    position: relative;
+    font-size: 10px;
+    cursor: pointer;
+    margin-left: 15px;
+    text-align: left;
+}
+
+/* Кнопка скачать бота 720 */
+.btn-download-720 {
+    font-family: 'Exo 2', sans-serif;
+    width: 380px;
+    height: 24px;
+    background: rgb(226, 0, 26);
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    position: relative;
+    font-size: 10px;
+    cursor: pointer;
+    margin-left: 15px;
+    text-align: left;
+}
+
+.btn-delete-accessory {
+    display: flex;
+
+}
+
+.btn-delete-accessory button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Exo 2', sans-serif;
+    width: 12px;
+    height: 12px;
+    background: rgb(48, 48, 48);
+    color: white;
+    border: 0;
+    border-radius: 50px;
+    position: absolute;
+    font-size: 9px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 3px;
+    margin-top: -10px;
+}
+
+.btn-delete-accessory button:hover {
+    background: white;
+    color: rgb(48, 48, 48);
+
+}
+
+/* Кнопка создать случайного бота */
+.btn-random {
+    font-family: 'Exo 2', sans-serif;
+    width: 40px;
+    height: 40px;
+    background: RGB(48, 48, 48);
+    color: #fff;
+    border: 0;
+    border-radius: 115px;
+    position: absolute;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: -728px;
+    top: 440px;
+}
+
+/* Кнопка изменить рамку */
+.btn-frame {
+    font-family: 'Exo 2', sans-serif;
+    width: 40px;
+    height: 40px;
+    background: RGB(48, 48, 48);
+    color: #fff;
+    border: 0;
+    border-radius: 115px;
+    position: absolute;
+    font-size: 17px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: -512px;
+    top: 440px;
+}
+
+
+/* Главное Меню ------------------------------------------------------ */
+
+/* Меню общее */
+.menu {
+    margin-top: 30px;
+    padding: 20px; /* Поля вокруг текста */
+    background: white; /* Цвет фона */
+    text-align: center; /* Положение текста */
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Меню текст */
+.menu A {
+    font-family: 'Exo 2', sans-serif;
+    text-decoration: none; /* Декорация текста */
+    margin: 0 1% 0 1%; /* Отступы пунктов меню */
+    color: RGB(48, 48, 48); /* Цвет текста меню */
+    position: relative;
+    width: 110px;
+}
+
+/* Изменение цвета при наведении курсора мыши в меню */
+.menu A:hover {
+    color: RGB(0, 157, 224);
+}
+
+
+/* Общие стили ------------------------------------------------------- */
+
+/* Стандартные стили общее */
+.standard {
+    font-family: 'Exo 2', sans-serif;
+    margin-right: 25%; /* Отступы справа */
+    margin-left: 25%; /* Отступы слева */
+    text-align:center; /* Расположение в блоке - по центру */
+}
+
+/* Стандартные стили общее */
+.standard img {
+    text-align:center; /* Расположение в блоке - по центру */
+    width: 100%;
+}
+
+/* Маска 144 - 1 */
+#mask-144-1 {
+    -webkit-mask: url('');
+    -webkit-mask-position: center center; /* Центрирование маски по горизонтали и вертикали */
+    -webkit-mask-size: 100% 100%; /* Масштабирование маски на 100% по ширине и высоте */
+}
+
+/* Маска 144 - 2 */
+#mask-144-2 {
+    -webkit-mask: url('');
+    -webkit-mask-position: center center; /* Центрирование маски по горизонтали и вертикали */
+    -webkit-mask-size: 100% 100%; /* Масштабирование маски на 100% по ширине и высоте */
+}
+
+/* Маска 720 - 1 */
+#mask-720-1 {
+    -webkit-mask: url('');
+    -webkit-mask-position: center center; /* Центрирование маски по горизонтали и вертикали */
+    -webkit-mask-size: 100% 100%; /* Масштабирование маски на 100% по ширине и высоте */
+}
+
+/* Маска 720 - 2 */
+#mask-720-2 {
+    -webkit-mask: url('');
+    -webkit-mask-position: center center; /* Центрирование маски по горизонтали и вертикали */
+    -webkit-mask-size: 100% 100%; /* Масштабирование маски на 100% по ширине и высоте */
+}
+
+/* Маска 720 - 3 */
+#mask-720-3 {
+    -webkit-mask: url('');
+    -webkit-mask-position: center center; /* Центрирование маски по горизонтали и вертикали */
+    -webkit-mask-size: 100% 100%; /* Масштабирование маски на 100% по ширине и высоте */
+}
+
+/* Маска 720 - 4 */
+#mask-720-4 {
+    -webkit-mask: url('');
+    -webkit-mask-position: center center; /* Центрирование маски по горизонтали и вертикали */
+    -webkit-mask-size: 100% 100%; /* Масштабирование маски на 100% по ширине и высоте */
+}

@@ -1,0 +1,83 @@
+<img src="{{ additionally.background.url }}">
+
+{% if name_accessoires144.element2 %}
+    <img src="{{ name_accessoires144.element2.url }}">
+{% endif %}
+
+<img id="mask-get-144" src="{{ name144.element2.url }}">
+
+{% if mouth_accessoires144 and mouth_accessoires144.id == 1 %}
+    <img id="mask-144-1" src="{{ mouth_accessoires144.element1.url }}">
+{% endif %}
+
+{% if eyes_accessoires144 and eyes_accessoires144.id == 1 %}
+        <img src="{{ eyes_accessoires144.element1.url }}">
+{% endif %}
+
+<img src="{{ name144.element1.url }}">
+
+{% if mouth_accessoires144 and mouth_accessoires144.id != 1 and mouth_accessoires144.id != 8 and mouth_accessoires144.id != 10 %}
+    {% if mouth_accessoires144.id == 3 and eyes144.id == 45 %}
+        <img src="{{ mouth_accessoires144.element2.url }}">
+    {% else %}
+        <img src="{{ mouth_accessoires144.element1.url }}">
+    {% endif %}
+{% endif %}
+
+<img id="mask-144-2" src="{{ mouth144.element1.url }}">
+
+{% if not eyes_accessoires144 %}
+    <img src="{{ eyes144.element1.url }}">
+{% endif %}
+
+{% if eyes_accessoires144.id == 1 %}
+    <img src="{{ eyes144.element1.url }}">
+{% endif %}
+
+{% if eyes_accessoires144 and eyes_accessoires144.id != 1 %}
+    <img src="{{ eyes_accessoires144.element1.url }}">
+        {% if eyes_accessoires144.id == 3 %}
+        {% endif %}
+{% endif %}
+
+<img src="{{ antenna144.element1.url }}">
+
+{% if rare_accessoires144 %}
+    <img src="{{ rare_accessoires144.element1.url }}">
+{% endif %}
+
+{% if mouth_accessoires144.id == 8 or mouth_accessoires144.id == 10 %}
+        <img src="{{ mouth_accessoires144.element1.url }}">
+{% endif %}
+
+{% if name_accessoires144 %}
+    {% if name_accessoires144.id == 10 and name144.id|divisibleby:5 %}
+        <img src="{{ name_accessoires144.element2.url }}">
+    {% else %}
+        <img src="{{ name_accessoires144.element1.url }}">
+    {% endif %}
+{% endif %}
+
+{% if frame_type == 1 %}
+    <img id="bot-frame-square" src="{{ additionally.frame.url }}">
+{% else %}
+    <img id="bot-frame-round" src="{{ additionally.frame.url }}">
+{% endif %}
+
+<script>
+
+    var maskElement = document.getElementById('mask-144-1');
+    var maskElementGet = document.getElementById('mask-get-144');
+    var imageUrl = maskElementGet.getAttribute('src');
+    maskElement.style.webkitMaskImage = 'url(' + imageUrl + ')';
+
+</script>
+
+<script>
+
+    var maskElement = document.getElementById('mask-144-2');
+    var maskElementGet = document.getElementById('mask-get-144');
+    var imageUrl = maskElementGet.getAttribute('src');
+    maskElement.style.webkitMaskImage = 'url(' + imageUrl + ')';
+
+</script>

@@ -1,0 +1,203 @@
+<div class="rounded-rectangle">
+
+    <h3>
+        <strong>Model:</strong>
+    </h3>
+
+    <p>
+        {{ name144.name }} {{ antenna144.name }}<br>
+        c {{ eyes144.name }} сенсорами<br>
+        и {{ mouth144.name }} динамиком
+    </p>
+
+    <h3>
+        <strong>Accessories:</strong>
+    </h3>
+
+        {% if name_accessoires144 %}
+
+            <div class="btn-delete-accessory">
+                <p>{{ name_accessoires144.name }}</p>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="submit_button" value="a-model-delete">✖</button>
+                </form>
+            </div>
+
+        {% else %}
+            <p>-<br></p>
+        {% endif %}
+
+        {% if eyes_accessoires144 %}
+
+            <div class="btn-delete-accessory">
+                <p>{{ eyes_accessoires144.name }}</p>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="submit_button" value="a-sensor-delete">✖</button>
+                </form>
+            </div>
+
+        {% else %}
+            <p>-<br></p>
+        {% endif %}
+
+        {% if mouth_accessoires144 %}
+
+            <div class="btn-delete-accessory">
+                <p>{{ mouth_accessoires144.name }}</p>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="submit_button" value="a-speaker-delete">✖</button>
+                </form>
+            </div>
+
+        {% else %}
+            <p>-<br></p>
+        {% endif %}
+
+        {% if rare_accessoires144 %}
+
+            <div class="btn-delete-accessory">
+                <p>{{ rare_accessoires144.name }}</p>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="submit_button" value="a-rare-delete">✖</button>
+                </form>
+            </div>
+
+        {% else %}
+            <p>-<br></p>
+        {% endif %}
+
+
+    <h3 id="rounded-rectangle-h3">
+        <strong>BADBOT#</strong>
+    </h3>
+
+    <p>
+        not created yet<br>
+    </p>
+
+    {% if site_type == 'type-144' %}
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-download-144" type="submit" name="submit_button" value="">DOWNLOAD</button>
+        </form>
+    {% elif site_type == 'type-720' %}
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-download-720" type="submit" name="submit_button" value="">DOWNLOAD</button>
+        </form>
+    {% endif %}
+
+</div>
+
+<div class="button-create">
+
+    <div class="button-row">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-back" type="submit" name="submit_button" value="model-"></button>
+        </form>
+
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-forward" type="submit" name="submit_button" value="model+">МОДЕЛЬ</button>
+        </form>
+    </div>
+
+    <div class="button-row">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-back" type="submit" name="submit_button" value="antenna-"></button>
+        </form>
+
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-forward" type="submit" name="submit_button" value="antenna+">АНТЕННА</button>
+        </form>
+    </div>
+
+    <div class="button-row">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-back" type="submit" name="submit_button" value="sensor-"></button>
+        </form>
+
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-forward" type="submit" name="submit_button" value="sensor+">СЕНСОРЫ</button>
+        </form>
+    </div>
+
+    <div class="button-row">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-back" type="submit" name="submit_button" value="speaker-"></button>
+        </form>
+
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-forward" type="submit" name="submit_button" value="speaker+">ДИНАМИК</button>
+        </form>
+    </div>
+
+    <div class="button-row">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-back" type="submit" name="submit_button" value="a-model-"></button>
+        </form>
+
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-forward" type="submit" name="submit_button" value="a-model+">Акс. МОДЕЛИ</button>
+        </form>
+    </div>
+
+    <div class="button-row">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-back" type="submit" name="submit_button" value="a-sensor-"></button>
+        </form>
+
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-forward" type="submit" name="submit_button" value="a-sensor+">Акс. СЕНСОРОВ</button>
+        </form>
+    </div>
+
+    <div class="button-row">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-back" type="submit" name="submit_button" value="a-speaker-"></button>
+        </form>
+
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-forward" type="submit" name="submit_button" value="a-speaker+">Акс. ДИНАМИКА</button>
+        </form>
+    </div>
+
+    <div class="button-row">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-back" type="submit" name="submit_button" value="a-rare-"></button>
+        </form>
+
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn-forward" type="submit" name="submit_button" value="a-rare+">Акс. РЕДКИЕ</button>
+        </form>
+    </div>
+
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    <button class="btn-random" type="submit" name="submit_button" value="random">↻</button>
+</form>

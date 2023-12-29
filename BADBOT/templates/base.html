@@ -1,0 +1,197 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+
+</head>
+
+<body>
+
+{% if site_type == 'type-144' %}
+
+    <div class="line-blue"></div>
+
+    <div class="hat">
+
+        <img id="act_144_bg-line1" src="/media/design/hat/hat-bg-144.png">
+        <img id="act_144_bg-line2" src="/media/design/hat/hat-bg-720.png">
+        <img id="act_144_bg-img" src="/media/design/hat/hat-bg.png">
+
+        {% if frame_type == 1 %}
+
+            <div class="bot-logo-square">
+                {% include "create/create144-template.html" %}
+            </div>
+
+        {% else %}
+
+            <div class="bot-logo-round">
+                {% include "create/create144-template.html" %}
+            </div>
+
+        {% endif %}
+
+        <img id="act_144_logo-txt" src="/media/design/hat/logo-txt-144.png">
+        <img id="act_144_but-144-gray" src="/media/design/hat/but-144-gr.png">
+        <img id="act_144_but-144-blue" src="/media/design/hat/but-144.png">
+
+        <form method="post">
+            {% csrf_token %}
+                <button id="act_144_button-144" type="submit" name="submit_button" value="change_style_144">
+                    <img src="/media/design/hat/but-144.png" alt="">
+                </button>
+        </form>
+
+        <img id="act_144_but-720-gray" src="/media/design/hat/but-720-gr.png">
+        <img id="act_144_but-720-red" src="/media/design/hat/but-720.png">
+
+        <form method="post">
+            {% csrf_token %}
+                <button id="act_144_button-720" type="submit" name="submit_button" value="change_style_720">
+                    <img src="/media/design/hat/but-720.png" alt="">
+                </button>
+        </form>
+
+    </div>
+
+
+    <script>
+
+    document.getElementById("act_144_button-720").addEventListener("mouseover", function() {
+        document.getElementById("act_144_bg-line2").style.transition = "opacity 0.3s";
+        document.getElementById("act_144_bg-line2").style.opacity = "1";
+
+        document.getElementById("act_144_but-720-red").style.transition = "opacity 0.3s";
+        document.getElementById("act_144_but-720-red").style.opacity = "1";
+
+        document.getElementById("act_144_bg-line1").style.transition = "opacity 0.3s";
+        document.getElementById("act_144_bg-line1").style.opacity = "0";
+
+        document.getElementById("act_144_but-144-blue").style.transition = "opacity 0.3s";
+        document.getElementById("act_144_but-144-blue").style.opacity = "0";
+
+    });
+
+    document.getElementById("act_144_button-720").addEventListener("mouseout", function() {
+        document.getElementById("act_144_bg-line2").style.transition = "opacity 0.3s";
+        document.getElementById("act_144_bg-line2").style.opacity = "0";
+
+        document.getElementById("act_144_but-720-red").style.transition = "opacity 0.3s";
+        document.getElementById("act_144_but-720-red").style.opacity = "0";
+
+        document.getElementById("act_144_bg-line1").style.transition = "opacity 0.3s";
+        document.getElementById("act_144_bg-line1").style.opacity = "1";
+
+        document.getElementById("act_144_but-144-blue").style.transition = "opacity 0.3s";
+        document.getElementById("act_144_but-144-blue").style.opacity = "1";
+
+    });
+
+    </script>
+
+{% elif site_type == 'type-720' %}
+
+    <div class="line-red"></div>
+
+    <div class="hat">
+
+        <img id="act_720_bg-line1" src="/media/design/hat/hat-bg-720.png">
+        <img id="act_720_bg-line2" src="/media/design/hat/hat-bg-144.png">
+        <img id="act_720_bg-img" src="/media/design/hat/hat-bg.png">
+
+        {% if frame_type == 1 %}
+
+            <div class="bot-logo-square">
+                {% include "create/create720-template.html" %}
+            </div>
+
+        {% else %}
+
+            <div class="bot-logo-round">
+                {% include "create/create720-template.html" %}
+            </div>
+
+        {% endif %}
+
+        <img id="act_720_logo-txt" src="/media/design/hat/logo-txt-720.png">
+        <img id="act_720_but-144-gray" src="/media/design/hat/but-144-gr.png">
+        <img id="act_720_but-144-blue" src="/media/design/hat/but-144.png">
+
+        <form method="post">
+            {% csrf_token %}
+                <button id="act_720_button-144" type="submit" name="submit_button" value="change_style_144">
+                    <img src="/media/design/hat/but-144.png" alt="">
+                </button>
+        </form>
+
+        <img id="act_720_but-720-gray" src="/media/design/hat/but-720-gr.png">
+        <img id="act_720_but-720-red" src="/media/design/hat/but-720.png">
+
+        <form method="post">
+            {% csrf_token %}
+                <button id="act_720_button-720" type="submit" name="submit_button" value="change_style_720">
+                    <img src="/media/design/hat/but-720.png" alt="">
+                </button>
+        </form>
+
+    </div>
+
+    <script>
+
+    document.getElementById("act_720_button-144").addEventListener("mouseover", function() {
+        document.getElementById("act_720_bg-line2").style.transition = "opacity 0.3s";
+        document.getElementById("act_720_bg-line2").style.opacity = "1";
+
+        document.getElementById("act_720_but-720-red").style.transition = "opacity 0.3s";
+        document.getElementById("act_720_but-720-red").style.opacity = "0";
+
+        document.getElementById("act_720_bg-line1").style.transition = "opacity 0.3s";
+        document.getElementById("act_720_bg-line1").style.opacity = "0";
+
+        document.getElementById("act_720_but-144-blue").style.transition = "opacity 0.3s";
+        document.getElementById("act_720_but-144-blue").style.opacity = "1";
+
+    });
+
+    document.getElementById("act_720_button-144").addEventListener("mouseout", function() {
+        document.getElementById("act_720_bg-line2").style.transition = "opacity 0.3s";
+        document.getElementById("act_720_bg-line2").style.opacity = "0";
+
+        document.getElementById("act_720_but-720-red").style.transition = "opacity 0.3s";
+        document.getElementById("act_720_but-720-red").style.opacity = "1";
+
+        document.getElementById("act_720_bg-line1").style.transition = "opacity 0.3s";
+        document.getElementById("act_720_bg-line1").style.opacity = "1";
+
+        document.getElementById("act_720_but-144-blue").style.transition = "opacity 0.3s";
+        document.getElementById("act_720_but-144-blue").style.opacity = "0";
+
+    });
+
+    </script>
+
+{% endif %}
+
+    <div class="menu">
+        <a href="{% url 'index' %}">ПРОЕКТ</a>
+        <a href="{% url 'create' %}">СОЗДАТЬ</a>
+        <a href="{% url 'collection' %}">ГОТОВЫЕ</a>
+    </div>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+
+</html>
