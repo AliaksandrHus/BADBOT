@@ -1,0 +1,2 @@
+# BADBOT
+Badbot - avatars creator.
