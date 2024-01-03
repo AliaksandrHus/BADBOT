@@ -212,6 +212,39 @@
 
     <main>
         {% block content %}
+
+            {% if image_ready %}
+
+                {% if site_type == 'type-144' %}
+
+                <img id="myImage144" src="{{ image_ready.image144.url }}" style="display: none;">
+
+                <script>
+                    document.getElementById('myImage144').addEventListener('load', function() {
+                        var link = document.createElement('a');
+                        link.download = "имя-картинки.jpg"; // Имя файла
+                        link.href = "{{ image_ready.image144.url }}"; // URL вашей картинки
+                        link.click();
+                    });
+                </script>
+
+                {% elif site_type == 'type-720' %}
+
+                <img id="myImage720" src="{{ image_ready.image720.url }}" style="display: none;">
+
+                <script>
+                    document.getElementById('myImage720').addEventListener('load', function() {
+                        var link = document.createElement('a');
+                        link.download = "имя-картинки.jpg"; // Имя файла
+                        link.href = "{{ image_ready.image720.url }}"; // URL вашей картинки
+                        link.click();
+                    });
+                </script>
+
+                {% endif %}
+
+            {% endif %}
+
         {% endblock %}
     </main>
 

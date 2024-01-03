@@ -21,7 +21,8 @@ def create_data(apps, sender, **kwargs):
 
                     create = Model()
                     create.id = int(image_file.split('_')[1])
-                    create.name = image_file.split('_')[-1].split('.')[0].replace('+', ' ')
+                    create.name_ru = image_file.split('_')[-1].split('.')[0].replace('+', ' ')
+                    create.name_en = image_file.split('_')[-2].replace('+', ' ')
                     create.element1 = f'media/image/144/{mod}/{image_file}'
 
                     if image_file[1] == '-':
@@ -40,7 +41,8 @@ def create_data(apps, sender, **kwargs):
 
                     create = Model()
                     create.id = int(image_file.split('_')[1])
-                    create.name = image_file.split('_')[-1].split('.')[0].replace('+', ' ')
+                    create.name_ru = image_file.split('_')[-1].split('.')[0].replace('+', ' ')
+                    create.name_en = image_file.split('_')[-2].replace('+', ' ')
                     create.element1 = f'media/image/720/{mod}/{image_file}'
 
                     if image_file[1] == '-':
@@ -57,7 +59,7 @@ def create_data(apps, sender, **kwargs):
 
         create = Model()
         create.id = 1
-        create.background = f'media/image/additionally/BG.png'
-        create.frame = f'media/image/additionally/frame.png'
+        create.background = 'media/image/additionally/BG.png'
+        create.frame = 'media/image/additionally/frame.png'
         create.save()
 
