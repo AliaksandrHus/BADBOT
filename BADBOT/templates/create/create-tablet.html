@@ -5,9 +5,9 @@
     </h3>
 
     <p>
-        {{ name144.name }} {{ antenna144.name }}<br>
-        c {{ eyes144.name }} сенсорами<br>
-        и {{ mouth144.name }} динамиком
+        {{ name144.name_ru }} {{ antenna144.name_ru }}<br>
+        c {{ eyes144.name_ru }} сенсорами<br>
+        и {{ mouth144.name_ru }} динамиком
     </p>
 
     <h3>
@@ -17,7 +17,7 @@
         {% if name_accessoires144 %}
 
             <div class="btn-delete-accessory">
-                <p>{{ name_accessoires144.name }}</p>
+                <p>{{ name_accessoires144.name_ru }}</p>
 
                 <form method="post">
                     {% csrf_token %}
@@ -32,7 +32,7 @@
         {% if eyes_accessoires144 %}
 
             <div class="btn-delete-accessory">
-                <p>{{ eyes_accessoires144.name }}</p>
+                <p>{{ eyes_accessoires144.name_ru }}</p>
 
                 <form method="post">
                     {% csrf_token %}
@@ -47,7 +47,7 @@
         {% if mouth_accessoires144 %}
 
             <div class="btn-delete-accessory">
-                <p>{{ mouth_accessoires144.name }}</p>
+                <p>{{ mouth_accessoires144.name_ru }}</p>
 
                 <form method="post">
                     {% csrf_token %}
@@ -62,7 +62,7 @@
         {% if rare_accessoires144 %}
 
             <div class="btn-delete-accessory">
-                <p>{{ rare_accessoires144.name }}</p>
+                <p>{{ rare_accessoires144.name_ru }}</p>
 
                 <form method="post">
                     {% csrf_token %}
@@ -76,22 +76,26 @@
 
 
     <h3 id="rounded-rectangle-h3">
-        <strong>BADBOT#</strong>
+        <strong>BADBOT</strong>
     </h3>
 
     <p>
-        not created yet<br>
+        {% if image_in_db %}
+            # {{ image_in_db.image_id }} in collection<br>
+        {% else %}
+            not created yet<br>
+        {% endif %}
     </p>
 
     {% if site_type == 'type-144' %}
         <form method="post">
             {% csrf_token %}
-            <button class="btn-download-144" type="submit" name="submit_button" value="">DOWNLOAD</button>
+            <button class="btn-download-144" type="submit" name="submit_button" value="download-image">DOWNLOAD</button>
         </form>
     {% elif site_type == 'type-720' %}
         <form method="post">
             {% csrf_token %}
-            <button class="btn-download-720" type="submit" name="submit_button" value="">DOWNLOAD</button>
+            <button class="btn-download-720" type="submit" name="submit_button" value="download-image">DOWNLOAD</button>
         </form>
     {% endif %}
 

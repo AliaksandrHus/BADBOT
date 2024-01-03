@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-import random
+from .create_image import create_img
 
 from .models import Name144, Mouth144, Eyes144, Antenna144, \
     NameAccessoires144, EyesAccessoires144, MouthAccessoires144, RareAccessoires144
@@ -7,12 +7,17 @@ from .models import Name144, Mouth144, Eyes144, Antenna144, \
 from .models import Name720, Mouth720, Eyes720, Antenna720, \
     NameAccessoires720, EyesAccessoires720, MouthAccessoires720, RareAccessoires720
 
-from .models import Additionally
+from .models import Additionally, Collection
+
+import random
 
 
 site_type = 'type-144'                          # тип сайта - 144 / 720
 frame_type = 2                                  # 2 - круглая рамка / 1 - квадратная
 random_list = [12, 44, 2, 19, 0, 3, 0, 0]       # стартовый набор элементов
+
+image_ready = False
+download_ready = False
 
 # [модель, антенна, сенсоры, динамик, акс. модели, акс. сенсоров, акс. динамиков, редкие]
 
@@ -133,6 +138,18 @@ def create(request):
     global site_type
     global frame_type
     global random_list
+    global image_ready
+    global download_ready
+
+    if not download_ready: image_ready = False
+    if image_ready and download_ready: download_ready = False
+
+    image_elements = get_elements()
+    all_elements_id = Collection.objects.values_list('elements_id', flat=True)
+
+    if '-'.join([str(x) for x in random_list]) in all_elements_id:
+        image_in_db = Collection.objects.get(elements_id='-'.join([str(x) for x in random_list]))
+    else: image_in_db = False
 
     if request.method == 'POST':
 
@@ -289,7 +306,15 @@ def create(request):
             random_list[7] = 0
             return redirect('create')
 
-    image_elements = get_elements()
+        # Кнопка скачать картинку
+
+        if 'submit_button' in request.POST and request.POST['submit_button'] == 'download-image':
+
+            if image_in_db: image_ready = image_in_db
+            else: image_ready = create_img(image_elements, random_list)
+
+            download_ready = True
+            return redirect('create')
 
     data = {
 
@@ -317,6 +342,8 @@ def create(request):
         'rare_accessoires720': image_elements[1][7],
 
         'additionally': image_elements[2],
+        'image_in_db': image_in_db,
+        'image_ready': image_ready,
     }
 
     return render(request, 'create.html', data)
