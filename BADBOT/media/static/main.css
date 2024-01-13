@@ -56,7 +56,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    top: 110px;
+    top: 108px;
     width: 150px;
     height: 150px;
     clip-path: inset(5px 5px 5px 5px round 30px);
@@ -70,7 +70,8 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    top: 110px;
+    /* top: 110px; */
+    top: 108px;
     width: 150px;
     height: 150px;
     clip-path: inset(0px 0px 0px 0px round 1px);
