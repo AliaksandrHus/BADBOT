@@ -60,7 +60,6 @@
     width: 150px;
     height: 150px;
     clip-path: inset(5px 5px 5px 5px round 30px);
-    /* box-shadow: inset 0 0 0 8px RGB(48, 48, 48); */
     border-radius: 34px;
 }
 
@@ -70,7 +69,6 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    /* top: 110px; */
     top: 108px;
     width: 150px;
     height: 150px;
@@ -97,8 +95,8 @@
 
 /* Горизонтальная линия */
 .line-blue {
-    border-bottom: 5px solid RGB(0, 157, 224); /* Параметры линии */
-    border-radius: 10px; /* Задает закругление углов линии */
+    border-bottom: 5px solid RGB(0, 157, 224);
+    border-radius: 10px;
 }
 
 /* Кнопка-картинка не активная */
@@ -165,8 +163,8 @@
 
 /* Горизонтальная линия */
 .line-red {
-    border-bottom: 5px solid RGB(226, 0, 26); /* Параметры линии */
-    border-radius: 10px; /* Задает закругление углов линии */
+    border-bottom: 5px solid RGB(226, 0, 26);
+    border-radius: 10px;
 }
 
 /* Кнопка-картинка активная */
@@ -251,8 +249,8 @@
 
 /* Горизонтальная линия */
 .line-blue {
-    border-bottom: 5px solid RGB(0, 157, 224); /* Параметры линии */
-    border-radius: 10px; /* Задает закругление углов линии */
+    border-bottom: 5px solid RGB(0, 157, 224);
+    border-radius: 10px;
 }
 
 /* Кнопка-картинка не активная */
@@ -319,8 +317,8 @@
 
 /* Горизонтальная линия */
 .line-red {
-    border-bottom: 5px solid RGB(226, 0, 26); /* Параметры линии */
-    border-radius: 10px; /* Задает закругление углов линии */
+    border-bottom: 5px solid RGB(226, 0, 26);
+    border-radius: 10px;
 }
 
 /* Кнопка-картинка активная */
@@ -486,11 +484,11 @@
     content: '';
     width: 60px;
     height: 2px;
-    background: RGB(48, 48, 48); /* Цвет линии, такой же как у кнопки */
+    background: RGB(48, 48, 48);
     position: absolute;
     left: -40px;
-    bottom: 0; /* Расположение линии в середине кнопки */
-    transform: translateX(-50%); /* Смещение линии на 50% ширины кнопки влево */
+    bottom: 0;
+    transform: translateX(-50%);
     top: 14px;
 }
 
@@ -527,14 +525,13 @@
 
 /* Прямоугольник характеристики бота */
 .rounded-rectangle {
-    width: 300px; /* Ширина вашего прямоугольника */
-    height: 261px; /* Высота вашего прямоугольника */
-    border-radius: 20px; /* Закругление углов */
-    background-color: RGB(48, 48, 48); /* Цвет фона */
-    position: absolute; /* Абсолютное позиционирование для задания координат */
+    width: 300px;
+    height: 261px;
+    border-radius: 20px;
+    background-color: RGB(48, 48, 48);
+    position: absolute;
     margin-left: -430px;
-    /* left: 355px; */
-    top: 109px; /* Вертикальная координата (по оси Y) */
+    top: 109px;
 }
 
 /* Прямоугольник характеристики бота - текст P */
@@ -600,11 +597,13 @@
     text-align: left;
 }
 
+/* Кнопка удалить аксессуар общее */
 .btn-delete-accessory {
     display: flex;
 
 }
 
+/* Кнопка удалить аксессуар */
 .btn-delete-accessory button {
     display: flex;
     justify-content: center;
@@ -624,6 +623,7 @@
     margin-top: -10px;
 }
 
+/* Кнопка удалить аксессуар - при наведении */
 .btn-delete-accessory button:hover {
     background: white;
     color: rgb(48, 48, 48);
@@ -664,15 +664,57 @@
     top: 440px;
 }
 
+/* Маска 144 - 1 */
+#mask-144-1 {
+    -webkit-mask: url('');
+    -webkit-mask-position: center center;
+    -webkit-mask-size: 100% 100%;
+}
+
+/* Маска 144 - 2 */
+#mask-144-2 {
+    -webkit-mask: url('');
+    -webkit-mask-position: center center;
+    -webkit-mask-size: 100% 100%;
+}
+
+/* Маска 720 - 1 */
+#mask-720-1 {
+    -webkit-mask: url('');
+    -webkit-mask-position: center center;
+    -webkit-mask-size: 100% 100%;
+}
+
+/* Маска 720 - 2 */
+#mask-720-2 {
+    -webkit-mask: url('');
+    -webkit-mask-position: center center;
+    -webkit-mask-size: 100% 100%;
+}
+
+/* Маска 720 - 3 */
+#mask-720-3 {
+    -webkit-mask: url('');
+    -webkit-mask-position: center center;
+    -webkit-mask-size: 100% 100%;
+}
+
+/* Маска 720 - 4 */
+#mask-720-4 {
+    -webkit-mask: url('');
+    -webkit-mask-position: center center;
+    -webkit-mask-size: 100% 100%;
+}
+
 
 /* Главное Меню ------------------------------------------------------ */
 
 /* Меню общее */
 .menu {
     margin-top: 30px;
-    padding: 20px; /* Поля вокруг текста */
-    background: white; /* Цвет фона */
-    text-align: center; /* Положение текста */
+    padding: 20px;
+    background: white;
+    text-align: center;
     border-radius: 30px;
     display: flex;
     justify-content: center;
@@ -681,9 +723,9 @@
 /* Меню текст */
 .menu A {
     font-family: 'Exo 2', sans-serif;
-    text-decoration: none; /* Декорация текста */
-    margin: 0 1% 0 1%; /* Отступы пунктов меню */
-    color: RGB(48, 48, 48); /* Цвет текста меню */
+    text-decoration: none;
+    margin: 0 1% 0 1%;
+    color: RGB(48, 48, 48);
     position: relative;
     width: 110px;
 }
@@ -699,55 +741,213 @@
 /* Стандартные стили общее */
 .standard {
     font-family: 'Exo 2', sans-serif;
-    margin-right: 25%; /* Отступы справа */
-    margin-left: 25%; /* Отступы слева */
-    text-align:center; /* Расположение в блоке - по центру */
+    margin-right: 25%;
+    margin-left: 25%;
+    text-align:center;
 }
 
 /* Стандартные стили общее */
 .standard img {
-    text-align:center; /* Расположение в блоке - по центру */
+    text-align:center;
     width: 100%;
 }
 
-/* Маска 144 - 1 */
-#mask-144-1 {
-    -webkit-mask: url('');
-    -webkit-mask-position: center center; /* Центрирование маски по горизонтали и вертикали */
-    -webkit-mask-size: 100% 100%; /* Масштабирование маски на 100% по ширине и высоте */
+/* Картинки в коллекции ---------------------------------------------- */
+
+/* Коллекция блок картинок */
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 700px;
 }
 
-/* Маска 144 - 2 */
-#mask-144-2 {
-    -webkit-mask: url('');
-    -webkit-mask-position: center center; /* Центрирование маски по горизонтали и вертикали */
-    -webkit-mask-size: 100% 100%; /* Масштабирование маски на 100% по ширине и высоте */
+/* Коллекция - картинка */
+.collection {
+    margin-left: -13px;
+    margin-right: -13px;
+    margin-bottom: -20px;
 }
 
-/* Маска 720 - 1 */
-#mask-720-1 {
-    -webkit-mask: url('');
-    -webkit-mask-position: center center; /* Центрирование маски по горизонтали и вертикали */
-    -webkit-mask-size: 100% 100%; /* Масштабирование маски на 100% по ширине и высоте */
+/* Коллекция - картинка */
+.collection img {
+    width: 150px;
+    height: auto;
+    clip-path: inset(10px 10px 10px 10px round 10px);
 }
 
-/* Маска 720 - 2 */
-#mask-720-2 {
-    -webkit-mask: url('');
-    -webkit-mask-position: center center; /* Центрирование маски по горизонтали и вертикали */
-    -webkit-mask-size: 100% 100%; /* Масштабирование маски на 100% по ширине и высоте */
+/* Коллекция - кнопка к редактированию */
+.collection button {
+    width:  auto;
+    height: auto;
+    clip-path: inset(13px 18px 18px 18px round 10px);
+    background: white;
+    cursor: pointer;
 }
 
-/* Маска 720 - 3 */
-#mask-720-3 {
-    -webkit-mask: url('');
-    -webkit-mask-position: center center; /* Центрирование маски по горизонтали и вертикали */
-    -webkit-mask-size: 100% 100%; /* Масштабирование маски на 100% по ширине и высоте */
+/* Коллекция - обертка картинки */
+.image-wrapper {
+    position: relative;
+    display: inline-block;
 }
 
-/* Маска 720 - 4 */
-#mask-720-4 {
-    -webkit-mask: url('');
-    -webkit-mask-position: center center; /* Центрирование маски по горизонтали и вертикали */
-    -webkit-mask-size: 100% 100%; /* Масштабирование маски на 100% по ширине и высоте */
+/* Коллекция - элемент при наведении */
+.black-overlay {
+    font-family: 'Exo 2', sans-serif;
+    color: white;
+    padding: 98px 10px;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Коллекция - элемент при наведении */
+.image-wrapper:hover .black-overlay {
+    display: block;
+}
+
+/* Коллекция - элемент при наведении 144 */
+#collection_image_id_144 {
+    font-size: 12px;
+    background-color: RGB(0, 157, 224);
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+/* Коллекция - элемент при наведении 720 */
+#collection_image_id_720 {
+    font-size: 12px;
+    background-color: RGB(226, 0, 26);
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+
+/* Пагинация коллекции ----------------------------------------------- */
+
+/* Пагинация общее */
+.pagination-up, .pagination-down {
+    font-family: 'Exo 2', sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 27px;
+}
+
+/* Пагинация общее - нижняя */
+.pagination-down {
+    margin-top: 33px;
+    margin-bottom: 20px;
+}
+
+/* Пагинация общее - контейнер */
+.step-links {
+    font-family: 'Exo 2', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Пагинация поле ввода */
+.currentUP input[name="page"], .currentDOWN input[name="page"] {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 20px;
+    min-width: 100px;
+    max-width: 100px;
+    text-align: center;
+    border: none;
+    position: relative;
+    top: -2px;
+}
+
+/* Пагинация активные кнопки */
+.active-pagination-small-btn-l, .active-pagination-small-btn-r, .active-pagination-big-btn-l, .active-pagination-big-btn-r {
+    width: 25px;
+    height: 25px;
+    background: RGB(48, 48, 48);
+    color: #fff;
+    border: 0;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+/* Пагинация кнопки */
+.active-pagination-small-btn-l {
+    padding-bottom: 2px;
+}
+
+/* Пагинация кнопки */
+.active-pagination-small-btn-r {
+    padding-top: 2px;
+}
+
+/* Пагинация кнопки */
+.active-pagination-big-btn-l, .active-pagination-big-btn-r {
+    width: 20px;
+    height: 20px;
+}
+
+/* Пагинация кнопки */
+.active-pagination-big-btn-l {
+    font-size: 8px;
+}
+
+/* Пагинация кнопки */
+.active-pagination-big-btn-r {
+    font-size: 8px;
+}
+
+/* Пагинация не активные кнопки */
+.pagination-small-btn-l, .pagination-small-btn-r, .pagination-big-btn-l, .pagination-big-btn-r {
+    width: 25px;
+    height: 25px;
+    background: RGB(154, 154, 154);
+    color: #fff;
+    border: 0;
+    border-radius: 20px;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+/* Пагинация кнопки */
+.pagination-small-btn-l {
+    padding-bottom: 2px;
+}
+
+/* Пагинация кнопки */
+.pagination-small-btn-r {
+    padding-top: 2px;
+}
+
+/* Пагинация кнопки */
+.pagination-big-btn-l, .pagination-big-btn-r {
+    width: 20px;
+    height: 20px;
+}
+
+/* Пагинация кнопки */
+.pagination-big-btn-l {
+    font-size: 8px;
+}
+
+/* Пагинация кнопки */
+.pagination-big-btn-r {
+    font-size: 8px;
+}
+
+/* Пагинация - вывод инфо */
+.bots_on_page {
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
 }

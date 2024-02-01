@@ -1,81 +1,23 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
+
 from .create_image import create_img
+from .elements import get_elements
 
-from .models import Name144, Mouth144, Eyes144, Antenna144, \
-    NameAccessoires144, EyesAccessoires144, MouthAccessoires144, RareAccessoires144
-
-from .models import Name720, Mouth720, Eyes720, Antenna720, \
-    NameAccessoires720, EyesAccessoires720, MouthAccessoires720, RareAccessoires720
-
-from .models import Additionally, Collection
+from .models import Collection
 
 import random
 
 
 site_type = 'type-144'                          # тип сайта - 144 / 720
 frame_type = 2                                  # 2 - круглая рамка / 1 - квадратная
-random_list = [12, 44, 2, 19, 0, 3, 0, 0]       # стартовый набор элементов
+random_list = [13, 44, 2, 19, 0, 3, 0, 0]       # стартовый набор элементов
 
 image_ready = False
 download_ready = False
+collection_page = None
 
 # [модель, антенна, сенсоры, динамик, акс. модели, акс. сенсоров, акс. динамиков, редкие]
-
-
-def get_elements():
-
-    """ Функция извлечения элементов из БД """
-
-    # Элементы 144
-
-    name144 = Name144.objects.get(id=random_list[0])
-    antenna144 = Antenna144.objects.get(id=random_list[1])
-    eyes144 = Eyes144.objects.get(id=random_list[2])
-    mouth144 = Mouth144.objects.get(id=random_list[3])
-
-    if random_list[4] != 0: name_accessoires144 = NameAccessoires144.objects.get(id=random_list[4])
-    else: name_accessoires144 = 0
-
-    if random_list[5] != 0: eyes_accessoires144 = EyesAccessoires144.objects.get(id=random_list[5])
-    else: eyes_accessoires144 = 0
-
-    if random_list[6] != 0: mouth_accessoires144 = MouthAccessoires144.objects.get(id=random_list[6])
-    else: mouth_accessoires144 = 0
-
-    if random_list[7] != 0: rare_accessoires144 = RareAccessoires144.objects.get(id=random_list[7])
-    else: rare_accessoires144 = 0
-
-    # Элементы 720
-
-    name720 = Name720.objects.get(id=random_list[0])
-    antenna720 = Antenna720.objects.get(id=random_list[1])
-    eyes720 = Eyes720.objects.get(id=random_list[2])
-    mouth720 = Mouth720.objects.get(id=random_list[3])
-
-    if random_list[4] != 0: name_accessoires720 = NameAccessoires720.objects.get(id=random_list[4])
-    else: name_accessoires720 = 0
-
-    if random_list[5] != 0: eyes_accessoires720 = EyesAccessoires720.objects.get(id=random_list[5])
-    else: eyes_accessoires720 = 0
-
-    if random_list[6] != 0: mouth_accessoires720 = MouthAccessoires720.objects.get(id=random_list[6])
-    else: mouth_accessoires720 = 0
-
-    if random_list[7] != 0: rare_accessoires720 = RareAccessoires720.objects.get(id=random_list[7])
-    else: rare_accessoires720 = 0
-
-    additionally = Additionally.objects.get(id=1)
-
-    return [
-
-        [name144, antenna144, eyes144, mouth144,
-             name_accessoires144, eyes_accessoires144, mouth_accessoires144, rare_accessoires144],
-
-        [name720, antenna720, eyes720, mouth720,
-             name_accessoires720, eyes_accessoires720, mouth_accessoires720, rare_accessoires720],
-
-        additionally
-    ]
 
 
 def index(request):
@@ -84,6 +26,8 @@ def index(request):
 
     title = 'Главная'
     global site_type
+
+    image_elements = get_elements(random_list)
 
     if request.method == 'POST':
 
@@ -97,8 +41,6 @@ def index(request):
             site_type = 'type-720'
             return redirect('index')
 
-    image_elements = get_elements()
-
     data = {
         'title': title,
         'site_type': site_type,
@@ -110,7 +52,7 @@ def index(request):
         'eyes144': image_elements[0][2],
         'mouth144': image_elements[0][3],
         'name_accessoires144': image_elements[0][4],
-        'eyes_accessoires144' : image_elements[0][5],
+        'eyes_accessoires144': image_elements[0][5],
         'mouth_accessoires144': image_elements[0][6],
         'rare_accessoires144': image_elements[0][7],
 
@@ -144,7 +86,7 @@ def create(request):
     if not download_ready: image_ready = False
     if image_ready and download_ready: download_ready = False
 
-    image_elements = get_elements()
+    image_elements = get_elements(random_list)
     all_elements_id = Collection.objects.values_list('elements_id', flat=True)
 
     if '-'.join([str(x) for x in random_list]) in all_elements_id:
@@ -267,7 +209,7 @@ def create(request):
 
         if 'submit_button' in request.POST and request.POST['submit_button'] == 'random':
 
-            random_list = [random.randint(1, x) for x in [50, 50, 50, 50, 30, 30, 30, 30]]
+            random_list = [random.randint(1, x) for x in [50, 50, 50, 50, 40, 40, 40, 40]]
 
             if random_list[4] > 10: random_list[4] = 0
             if random_list[5] > 10: random_list[5] = 0
@@ -328,7 +270,7 @@ def create(request):
         'eyes144': image_elements[0][2],
         'mouth144': image_elements[0][3],
         'name_accessoires144': image_elements[0][4],
-        'eyes_accessoires144' : image_elements[0][5],
+        'eyes_accessoires144': image_elements[0][5],
         'mouth_accessoires144': image_elements[0][6],
         'rare_accessoires144': image_elements[0][7],
 
@@ -355,6 +297,21 @@ def collection(request):
 
     title = 'Коллекция'
     global site_type
+    global random_list
+    global collection_page
+
+    image_elements = get_elements(random_list)
+
+    max_id_object = Collection.objects.all().order_by('-image_id').first().image_id
+
+    data = Collection.objects.all().order_by('image_id')
+    paginator = Paginator(data, 100)
+    page_get = request.GET.get('page')
+
+    if page_get != None: collection_page = page_get
+
+    page_number = collection_page
+    collection_elements = paginator.get_page(page_number)
 
     if request.method == 'POST':
 
@@ -368,7 +325,9 @@ def collection(request):
             site_type = 'type-720'
             return redirect('collection')
 
-    image_elements = get_elements()
+        if 'submit_button' in request.POST and request.POST['submit_button'] == 'edit':
+            random_list = list(map(int, request.POST['elements'].split('-')))
+            return redirect('create')
 
     data = {
 
@@ -382,7 +341,7 @@ def collection(request):
         'eyes144': image_elements[0][2],
         'mouth144': image_elements[0][3],
         'name_accessoires144': image_elements[0][4],
-        'eyes_accessoires144' : image_elements[0][5],
+        'eyes_accessoires144': image_elements[0][5],
         'mouth_accessoires144': image_elements[0][6],
         'rare_accessoires144': image_elements[0][7],
 
@@ -396,6 +355,11 @@ def collection(request):
         'rare_accessoires720': image_elements[1][7],
 
         'additionally': image_elements[2],
+
+        'collection_elements': collection_elements,
+        'page_number': str(page_number) if page_number else '0',
+        'bots_on_page': f'#{collection_elements[0].image_id} - #{collection_elements[-1].image_id}',
+        'max_id_object': max_id_object,
     }
 
     return render(request, 'collection.html', data)

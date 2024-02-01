@@ -51,11 +51,7 @@
 {% endif %}
 
 {% if name_accessoires144 %}
-    {% if name_accessoires144.id == 10 and name144.id|divisibleby:5 %}
-        <img src="{{ name_accessoires144.element2.url }}">
-    {% else %}
-        <img src="{{ name_accessoires144.element1.url }}">
-    {% endif %}
+    <img src="{{ name_accessoires144.element1.url }}">
 {% endif %}
 
 {% if frame_type == 1 %}

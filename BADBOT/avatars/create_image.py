@@ -106,7 +106,7 @@ def create_img(elements, random_list):
     else:
         head = Image.alpha_composite(head, eyes_accessoires_144)
 
-    if mouth_accessoires_144_1 and random_list[6] != 1:
+    if mouth_accessoires_144_1 and random_list[6] not in [1, 8, 10]:
         if random_list[6] == 3 and random_list[2] == 45:
             head = Image.alpha_composite(head, mouth_accessoires_144_2)
         else: head = Image.alpha_composite(head, mouth_accessoires_144_1)
@@ -117,12 +117,13 @@ def create_img(elements, random_list):
     if name_accessoires_144_2:
         head = Image.alpha_composite(name_accessoires_144_2, head)
 
+    if mouth_accessoires_144_1 and random_list[6] in [8, 10]:
+        head = Image.alpha_composite(head, mouth_accessoires_144_1)
+
     head = Image.alpha_composite(head, antenna_144)
 
     if name_accessoires_144_1:
-        if random_list[4] == 10 and random_list[0] % 5 == 0:
-            head = Image.alpha_composite(head, name_accessoires_144_2)
-        else: head = Image.alpha_composite(head, name_accessoires_144_1)
+        head = Image.alpha_composite(head, name_accessoires_144_1)
 
     head = Image.alpha_composite(background_144, head)
 
@@ -170,7 +171,7 @@ def create_img(elements, random_list):
 
     mask = name2_720.point(lambda p: p * 100)
 
-    if random_list[6] == 1 or random_list[6] == 5:
+    if random_list[6] == 1 or random_list[6] == 5 or random_list[6] == 9:
         breads = Image.composite(mouth_accessoires_720, frame_720, mask)
         head = Image.alpha_composite(name2_720, breads)
         if random_list[6] == 1: head = Image.alpha_composite(head, name3_720)
@@ -180,7 +181,7 @@ def create_img(elements, random_list):
     mouth_720 = Image.composite(mouth_720, frame_720, mask)
     head = Image.alpha_composite(head, mouth_720)
 
-    if mouth_accessoires_720 and random_list[6] != 1 and random_list[6] != 5:
+    if mouth_accessoires_720 and random_list[6] != 1 and random_list[6] != 5 and random_list[6] != 9:
         head = Image.alpha_composite(head, mouth_accessoires_720)
 
     if rare_accessoires_720:

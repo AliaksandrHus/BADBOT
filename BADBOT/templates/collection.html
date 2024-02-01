@@ -6,6 +6,129 @@
 
 {% block content %}
 
+<div class="pagination-up">
+    <span class="step-links">
+        {% if collection_elements.has_previous %}
+            <button class="active-pagination-big-btn-l" onclick="location.href='?page=1'" style="cursor: pointer;">❮❮</button>
+            <button class="active-pagination-small-btn-l" onclick="location.href='?page={{ collection_elements.previous_page_number }}'" style="cursor: pointer;">-</button>
+        {% else %}
+            <button class="pagination-big-btn-l">❮❮</button>
+            <button class="pagination-small-btn-l">-</button>
+        {% endif %}
 
+        <span class="currentUP">
+            <input id="pageInputUP" class="pageInput" name="page" value="{{ collection_elements.number }}" style="width: {{ page_number|length }}0px;">
+        </span>
+
+        {% if collection_elements.has_next %}
+            <button class="active-pagination-small-btn-r" onclick="location.href='?page={{ collection_elements.next_page_number }}'" style="cursor: pointer;">+</button>
+            <button class="active-pagination-big-btn-r" onclick="location.href='?page={{ collection_elements.paginator.num_pages }}'" style="cursor: pointer;">❯❯</button>
+        {% else %}
+            <button class="pagination-small-btn-r" >+</button>
+            <button class="pagination-big-btn-r" >❯❯</button>
+        {% endif %}
+    </span>
+</div>
+
+<div class="image-container">
+
+    {% for image in collection_elements %}
+
+        <div class="collection">
+            {% if site_type == 'type-144' %}
+
+            <form method="post">
+            {% csrf_token %}
+                <input type="hidden" name="elements" value="{{ image.elements_id }}">
+                <button type="submit" name="submit_button" value="edit">
+                            <div class="image-wrapper">
+                              <img src="{{ image.image144.url }}" alt="">
+                              <div class="black-overlay">
+                                  <p id="collection_image_id_144">#{{ image.image_id }}</p>
+                              </div>
+                            </div>
+                </button>
+            </form>
+
+            {% else %}
+
+            <form method="post">
+            {% csrf_token %}
+                <input type="hidden" name="elements" value="{{ image.elements_id }}">
+                <button type="submit" name="submit_button" value="edit">
+
+                       <div class="image-wrapper">
+                          <img src="{{ image.image720.url }}" alt="">
+                          <div class="black-overlay">
+                              <p id="collection_image_id_720">#{{ image.image_id }}</p>
+                          </div>
+                        </div>
+                </button>
+            </form>
+
+            {% endif %}
+        </div>
+    {% endfor %}
+
+</div>
+
+<div class="pagination-down">
+    <span class="step-links">
+        {% if collection_elements.has_previous %}
+            <button class="active-pagination-big-btn-l" onclick="location.href='?page=1'" style="cursor: pointer;">❮❮</button>
+            <button class="active-pagination-small-btn-l" onclick="location.href='?page={{ collection_elements.previous_page_number }}'" style="cursor: pointer;">-</button>
+        {% else %}
+            <button class="pagination-big-btn-l">❮❮</button>
+            <button class="pagination-small-btn-l">-</button>
+        {% endif %}
+
+        <span class="currentDOWN">
+            <input id="pageInputDOWN" class="pageInput" name="page" value="{{ collection_elements.number }}" style="width: {{ page_number|length }}0px;">
+        </span>
+
+        {% if collection_elements.has_next %}
+            <button class="active-pagination-small-btn-r" onclick="location.href='?page={{ collection_elements.next_page_number }}'" style="cursor: pointer;">+</button>
+            <button class="active-pagination-big-btn-r" onclick="location.href='?page={{ collection_elements.paginator.num_pages }}'" style="cursor: pointer;">❯❯</button>
+        {% else %}
+            <button class="pagination-small-btn-r" >+</button>
+            <button class="pagination-big-btn-r" >❯❯</button>
+        {% endif %}
+    </span>
+</div>
+
+<div class="bots_on_page">
+    <p>BADBOT on page {{ bots_on_page }}</p>
+    <p>Всего создано ботов {{ max_id_object }}</p>
+</div>
+
+<script>
+
+const currentInputUP = document.querySelector('.currentUP input');
+
+currentInputUP.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    const pageNumber = currentInputUP.value;
+    window.location.href = `?page=${pageNumber}`;
+  }
+});
+
+const currentInputDOWN = document.querySelector('.currentDOWN input');
+
+currentInputDOWN.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    const pageNumber = currentInputDOWN.value;
+    window.location.href = `?page=${pageNumber}`;
+  }
+});
+
+document.getElementById('pageInputUP').addEventListener('input', function() {
+  this.style.width = ((this.value.length + 1) * 12) + 'px';
+});
+
+document.getElementById('pageInputDOWN').addEventListener('input', function() {
+  this.style.width = ((this.value.length + 1) * 12) + 'px';
+});
+
+</script>
 
 {% endblock %}
