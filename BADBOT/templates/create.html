@@ -18,235 +18,247 @@
 
 {% if site_type == 'type-144' %}
 
-    <div class="line-blue"></div>
+<div class="line-blue"></div>
 
-    <div class="hat">
+<div class="hat">
 
-        <img id="act_144_bg-line1" src="/media/design/hat/hat-bg-144-big.png">
-        <img id="act_144_bg-line2" src="/media/design/hat/hat-bg-720-big.png">
-        <img id="act_144_bg-img" src="/media/design/hat/144-hat-max.png">
-        <img id="act_144_logo-txt-big" src="/media/design/hat/logo-txt-144.png">
-        <img id="act_144_but-144-gray-big" src="/media/design/hat/but-144-gr.png">
-        <img id="act_144_but-144-blue-big" src="/media/design/hat/but-144.png">
+    <img id="act_144_bg-line1" src="/media/design/hat/hat-bg-144-big.png">
+    <img id="act_144_bg-line2" src="/media/design/hat/hat-bg-720-big.png">
+    <img id="act_144_bg-img" src="/media/design/hat/144-hat-max.png">
+    <img id="act_144_logo-txt-big" src="/media/design/hat/logo-txt-144.png">
+    <img id="act_144_but-144-gray-big" src="/media/design/hat/but-144-gr.png">
+    <img id="act_144_but-144-blue-big" src="/media/design/hat/but-144.png">
+
+    <form method="post">
+        {% csrf_token %}
+            <button id="act_144_button-144-big" type="submit" name="submit_button" value="change_style_144">
+                <img src="/media/design/hat/but-144.png" alt="">
+            </button>
+    </form>
+
+    <img id="act_144_but-720-gray-big" src="/media/design/hat/but-720-gr.png">
+    <img id="act_144_but-720-red-big" src="/media/design/hat/but-720.png">
+
+    <form method="post">
+        {% csrf_token %}
+            <button id="act_144_button-720-big" type="submit" name="submit_button" value="change_style_720">
+                <img src="/media/design/hat/but-720.png" alt="">
+            </button>
+    </form>
+
+    {% include "create/create-tablet.html" %}
+
+    {% if frame_type == 1 %}
+
+        <div class="bot-create-square">
+            {% include "create/create144-template.html" %}
+        </div>
 
         <form method="post">
             {% csrf_token %}
-                <button id="act_144_button-144-big" type="submit" name="submit_button" value="change_style_144">
-                    <img src="/media/design/hat/but-144.png" alt="">
-                </button>
+            <button class="btn-frame" type="submit" name="submit_button" value="frame">◯</button>
         </form>
 
-        <img id="act_144_but-720-gray-big" src="/media/design/hat/but-720-gr.png">
-        <img id="act_144_but-720-red-big" src="/media/design/hat/but-720.png">
+    {% else %}
+
+        <div class="bot-create-round">
+            {% include "create/create144-template.html" %}
+        </div>
+
 
         <form method="post">
             {% csrf_token %}
-                <button id="act_144_button-720-big" type="submit" name="submit_button" value="change_style_720">
-                    <img src="/media/design/hat/but-720.png" alt="">
-                </button>
+            <button class="btn-frame" type="submit" name="submit_button" value="frame">▢</button>
         </form>
 
-        {% include "create/create-tablet.html" %}
+    {% endif %}
 
-        {% if frame_type == 1 %}
+</div>
 
-            <div class="bot-create-square">
-                {% include "create/create144-template.html" %}
-            </div>
+<script>
 
-            <form method="post">
-                {% csrf_token %}
-                <button class="btn-frame" type="submit" name="submit_button" value="frame">◯</button>
-            </form>
+document.getElementById("act_144_button-720-big").addEventListener("mouseover", function() {
+    document.getElementById("act_144_bg-line2").style.transition = "opacity 0.3s";
+    document.getElementById("act_144_bg-line2").style.opacity = "1";
 
-        {% else %}
+    document.getElementById("act_144_but-720-red-big").style.transition = "opacity 0.3s";
+    document.getElementById("act_144_but-720-red-big").style.opacity = "1";
 
-            <div class="bot-create-round">
-                {% include "create/create144-template.html" %}
-            </div>
+    document.getElementById("act_144_bg-line1").style.transition = "opacity 0.3s";
+    document.getElementById("act_144_bg-line1").style.opacity = "0";
 
+    document.getElementById("act_144_but-144-blue-big").style.transition = "opacity 0.3s";
+    document.getElementById("act_144_but-144-blue-big").style.opacity = "0";
 
-            <form method="post">
-                {% csrf_token %}
-                <button class="btn-frame" type="submit" name="submit_button" value="frame">▢</button>
-            </form>
+});
 
-        {% endif %}
+document.getElementById("act_144_button-720-big").addEventListener("mouseout", function() {
+    document.getElementById("act_144_bg-line2").style.transition = "opacity 0.3s";
+    document.getElementById("act_144_bg-line2").style.opacity = "0";
 
-    </div>
+    document.getElementById("act_144_but-720-red-big").style.transition = "opacity 0.3s";
+    document.getElementById("act_144_but-720-red-big").style.opacity = "0";
 
-    <script>
+    document.getElementById("act_144_bg-line1").style.transition = "opacity 0.3s";
+    document.getElementById("act_144_bg-line1").style.opacity = "1";
 
-    document.getElementById("act_144_button-720-big").addEventListener("mouseover", function() {
-        document.getElementById("act_144_bg-line2").style.transition = "opacity 0.3s";
-        document.getElementById("act_144_bg-line2").style.opacity = "1";
+    document.getElementById("act_144_but-144-blue-big").style.transition = "opacity 0.3s";
+    document.getElementById("act_144_but-144-blue-big").style.opacity = "1";
 
-        document.getElementById("act_144_but-720-red-big").style.transition = "opacity 0.3s";
-        document.getElementById("act_144_but-720-red-big").style.opacity = "1";
+});
 
-        document.getElementById("act_144_bg-line1").style.transition = "opacity 0.3s";
-        document.getElementById("act_144_bg-line1").style.opacity = "0";
-
-        document.getElementById("act_144_but-144-blue-big").style.transition = "opacity 0.3s";
-        document.getElementById("act_144_but-144-blue-big").style.opacity = "0";
-
-    });
-
-    document.getElementById("act_144_button-720-big").addEventListener("mouseout", function() {
-        document.getElementById("act_144_bg-line2").style.transition = "opacity 0.3s";
-        document.getElementById("act_144_bg-line2").style.opacity = "0";
-
-        document.getElementById("act_144_but-720-red-big").style.transition = "opacity 0.3s";
-        document.getElementById("act_144_but-720-red-big").style.opacity = "0";
-
-        document.getElementById("act_144_bg-line1").style.transition = "opacity 0.3s";
-        document.getElementById("act_144_bg-line1").style.opacity = "1";
-
-        document.getElementById("act_144_but-144-blue-big").style.transition = "opacity 0.3s";
-        document.getElementById("act_144_but-144-blue-big").style.opacity = "1";
-
-    });
-
-    </script>
+</script>
 
 {% elif site_type == 'type-720' %}
 
-    <div class="line-red"></div>
+<div class="line-red"></div>
 
-    <div class="hat">
+<div class="hat">
 
-        <img id="act_720_bg-line1" src="/media/design/hat/hat-bg-720-big.png">
-        <img id="act_720_bg-line2" src="/media/design/hat/hat-bg-144-big.png">
-        <img id="act_720_bg-img" src="/media/design/hat/720-hat-max.png">
-        <img id="act_720_logo-txt-big" src="/media/design/hat/logo-txt-720.png">
-        <img id="act_720_but-144-gray-big" src="/media/design/hat/but-144-gr.png">
-        <img id="act_720_but-144-blue-big" src="/media/design/hat/but-144.png">
+    <img id="act_720_bg-line1" src="/media/design/hat/hat-bg-720-big.png">
+    <img id="act_720_bg-line2" src="/media/design/hat/hat-bg-144-big.png">
+    <img id="act_720_bg-img" src="/media/design/hat/720-hat-max.png">
+    <img id="act_720_logo-txt-big" src="/media/design/hat/logo-txt-720.png">
+    <img id="act_720_but-144-gray-big" src="/media/design/hat/but-144-gr.png">
+    <img id="act_720_but-144-blue-big" src="/media/design/hat/but-144.png">
+
+    <form method="post">
+        {% csrf_token %}
+            <button id="act_720_button-144-big" type="submit" name="submit_button" value="change_style_144">
+                <img src="/media/design/hat/but-144.png" alt="">
+            </button>
+    </form>
+
+    <img id="act_720_but-720-gray-big" src="/media/design/hat/but-720-gr.png">
+    <img id="act_720_but-720-red-big" src="/media/design/hat/but-720.png">
+
+    <form method="post">
+        {% csrf_token %}
+            <button id="act_720_button-720-big" type="submit" name="submit_button" value="change_style_720">
+                <img src="/media/design/hat/but-720.png" alt="">
+            </button>
+    </form>
+
+    {% include "create/create-tablet.html" %}
+
+    {% if frame_type == 1 %}
+
+        <div class="bot-create-square">
+            {% include "create/create720-template.html" %}
+        </div>
+
 
         <form method="post">
             {% csrf_token %}
-                <button id="act_720_button-144-big" type="submit" name="submit_button" value="change_style_144">
-                    <img src="/media/design/hat/but-144.png" alt="">
-                </button>
+            <button class="btn-frame" type="submit" name="submit_button" value="frame">◯</button>
         </form>
 
-        <img id="act_720_but-720-gray-big" src="/media/design/hat/but-720-gr.png">
-        <img id="act_720_but-720-red-big" src="/media/design/hat/but-720.png">
+    {% else %}
+
+        <div class="bot-create-round">
+            {% include "create/create720-template.html" %}
+        </div>
 
         <form method="post">
             {% csrf_token %}
-                <button id="act_720_button-720-big" type="submit" name="submit_button" value="change_style_720">
-                    <img src="/media/design/hat/but-720.png" alt="">
-                </button>
+            <button class="btn-frame" type="submit" name="submit_button" value="frame">▢</button>
         </form>
 
-        {% include "create/create-tablet.html" %}
+    {% endif %}
 
-        {% if frame_type == 1 %}
+</div>
 
-            <div class="bot-create-square">
-                {% include "create/create720-template.html" %}
-            </div>
+<script>
 
+document.getElementById("act_720_button-144-big").addEventListener("mouseover", function() {
+    document.getElementById("act_720_bg-line2").style.transition = "opacity 0.3s";
+    document.getElementById("act_720_bg-line2").style.opacity = "1";
 
-            <form method="post">
-                {% csrf_token %}
-                <button class="btn-frame" type="submit" name="submit_button" value="frame">◯</button>
-            </form>
+    document.getElementById("act_720_but-720-red-big").style.transition = "opacity 0.3s";
+    document.getElementById("act_720_but-720-red-big").style.opacity = "0";
 
-        {% else %}
+    document.getElementById("act_720_bg-line1").style.transition = "opacity 0.3s";
+    document.getElementById("act_720_bg-line1").style.opacity = "0";
 
-            <div class="bot-create-round">
-                {% include "create/create720-template.html" %}
-            </div>
+    document.getElementById("act_720_but-144-blue-big").style.transition = "opacity 0.3s";
+    document.getElementById("act_720_but-144-blue-big").style.opacity = "1";
 
-            <form method="post">
-                {% csrf_token %}
-                <button class="btn-frame" type="submit" name="submit_button" value="frame">▢</button>
-            </form>
+});
 
-        {% endif %}
+document.getElementById("act_720_button-144-big").addEventListener("mouseout", function() {
+    document.getElementById("act_720_bg-line2").style.transition = "opacity 0.3s";
+    document.getElementById("act_720_bg-line2").style.opacity = "0";
 
-    </div>
+    document.getElementById("act_720_but-720-red-big").style.transition = "opacity 0.3s";
+    document.getElementById("act_720_but-720-red-big").style.opacity = "1";
 
-    <script>
+    document.getElementById("act_720_bg-line1").style.transition = "opacity 0.3s";
+    document.getElementById("act_720_bg-line1").style.opacity = "1";
 
-    document.getElementById("act_720_button-144-big").addEventListener("mouseover", function() {
-        document.getElementById("act_720_bg-line2").style.transition = "opacity 0.3s";
-        document.getElementById("act_720_bg-line2").style.opacity = "1";
+    document.getElementById("act_720_but-144-blue-big").style.transition = "opacity 0.3s";
+    document.getElementById("act_720_but-144-blue-big").style.opacity = "0";
 
-        document.getElementById("act_720_but-720-red-big").style.transition = "opacity 0.3s";
-        document.getElementById("act_720_but-720-red-big").style.opacity = "0";
+});
 
-        document.getElementById("act_720_bg-line1").style.transition = "opacity 0.3s";
-        document.getElementById("act_720_bg-line1").style.opacity = "0";
-
-        document.getElementById("act_720_but-144-blue-big").style.transition = "opacity 0.3s";
-        document.getElementById("act_720_but-144-blue-big").style.opacity = "1";
-
-    });
-
-    document.getElementById("act_720_button-144-big").addEventListener("mouseout", function() {
-        document.getElementById("act_720_bg-line2").style.transition = "opacity 0.3s";
-        document.getElementById("act_720_bg-line2").style.opacity = "0";
-
-        document.getElementById("act_720_but-720-red-big").style.transition = "opacity 0.3s";
-        document.getElementById("act_720_but-720-red-big").style.opacity = "1";
-
-        document.getElementById("act_720_bg-line1").style.transition = "opacity 0.3s";
-        document.getElementById("act_720_bg-line1").style.opacity = "1";
-
-        document.getElementById("act_720_but-144-blue-big").style.transition = "opacity 0.3s";
-        document.getElementById("act_720_but-144-blue-big").style.opacity = "0";
-
-    });
-
-    </script>
+</script>
 
 {% endif %}
 
-    <div class="menu">
-        <a href="{% url 'index' %}">ПРОЕКТ</a>
-        <a href="{% url 'create' %}">СОЗДАТЬ</a>
-        <a href="{% url 'collection' %}">ГОТОВЫЕ</a>
-    </div>
+<div class="menu">
+    <a href="{% url 'index' %}">ПРОЕКТ</a>
+    <a href="{% url 'create' %}">СОЗДАТЬ</a>
+    <a href="{% url 'collection' %}">ГОТОВЫЕ</a>
+</div>
 
-    <main>
-        {% block content %}
+<main>
+    {% block content %}
 
-            {% if image_ready %}
+        {% if image_ready %}
 
-                {% if site_type == 'type-144' %}
+            {% if site_type == 'type-144' %}
 
-                <img id="myImage144" src="{{ image_ready.image144.url }}" style="display: none;">
+            <img id="myImage144" src="{{ image_ready.image144.url }}" style="display: none;">
 
-                <script>
-                    document.getElementById('myImage144').addEventListener('load', function() {
-                        var link = document.createElement('a');
-                        link.download = "имя-картинки.jpg"; // Имя файла
-                        link.href = "{{ image_ready.image144.url }}"; // URL вашей картинки
-                        link.click();
-                    });
-                </script>
+            <script>
+                document.getElementById('myImage144').addEventListener('load', function() {
+                    var link = document.createElement('a');
+                    link.download = "имя-картинки.jpg"; // Имя файла
+                    link.href = "{{ image_ready.image144.url }}"; // URL вашей картинки
+                    link.click();
+                });
+            </script>
 
-                {% elif site_type == 'type-720' %}
+            {% elif site_type == 'type-720' %}
 
-                <img id="myImage720" src="{{ image_ready.image720.url }}" style="display: none;">
+            <img id="myImage720" src="{{ image_ready.image720.url }}" style="display: none;">
 
-                <script>
-                    document.getElementById('myImage720').addEventListener('load', function() {
-                        var link = document.createElement('a');
-                        link.download = "имя-картинки.jpg"; // Имя файла
-                        link.href = "{{ image_ready.image720.url }}"; // URL вашей картинки
-                        link.click();
-                    });
-                </script>
-
-                {% endif %}
+            <script>
+                document.getElementById('myImage720').addEventListener('load', function() {
+                    var link = document.createElement('a');
+                    link.download = "имя-картинки.jpg"; // Имя файла
+                    link.href = "{{ image_ready.image720.url }}"; // URL вашей картинки
+                    link.click();
+                });
+            </script>
 
             {% endif %}
 
-        {% endblock %}
-    </main>
+        {% endif %}
+
+    {% endblock %}
+
+{% if content.create_message %}
+    <div class="red-message">
+        {{ content.create_message|safe }}
+    </div>
+{% endif %}
+
+<div class="standard">
+    {{ content.create_text_1|safe }}
+    {{ content.create_text_2|safe }}
+</div>
+
+</main>
 
 </body>
 

@@ -5,8 +5,15 @@
 
 {% block content %}
 
+{% if content.index_message %}
+    <div class="red-message">
+        {{ content.index_message|safe }}
+    </div>
+{% endif %}
 
 <div class="standard">
+    {{ content.index_text_1|safe }}
+    {{ content.index_text_2|safe }}
 </div>
 
 

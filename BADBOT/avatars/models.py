@@ -212,3 +212,48 @@ class Collection(models.Model):
 
     image144 = models.ImageField(upload_to='elements/name/')
     image720 = models.ImageField(upload_to='elements/name/')
+
+
+class Content(models.Model):
+    """Модель контента"""
+
+    id = models.IntegerField(primary_key=True)
+
+    # контент index
+
+    index_text_1 = models.TextField('Текст Index №1', blank=True)
+    index_text_2 = models.TextField('Текст Index №2', blank=True)
+
+    index_img_1 = models.ImageField('Картинка Index №1', upload_to='media/design/content/', blank=True)
+    index_img_2 = models.ImageField('Картинка Index №2', upload_to='media/design/content/', blank=True)
+    index_img_3 = models.ImageField('Картинка Index №3', upload_to='media/design/content/', blank=True)
+    index_img_4 = models.ImageField('Картинка Index №4', upload_to='media/design/content/', blank=True)
+    index_img_5 = models.ImageField('Картинка Index №5', upload_to='media/design/content/', blank=True)
+
+    # контент create
+
+    create_text_1 = models.TextField('Контент Create №1', blank=True)
+    create_text_2 = models.TextField('Контент Create №2', blank=True)
+
+    create_img_1 = models.ImageField('Картинка Create №1', upload_to='media/design/content/', blank=True)
+    create_img_2 = models.ImageField('Картинка Create №2', upload_to='media/design/content/', blank=True)
+    create_img_3 = models.ImageField('Картинка Create №3', upload_to='media/design/content/', blank=True)
+    create_img_4 = models.ImageField('Картинка Create №4', upload_to='media/design/content/', blank=True)
+    create_img_5 = models.ImageField('Картинка Create №5', upload_to='media/design/content/', blank=True)
+
+    # контент collection
+
+    collection_text_1 = models.TextField('Контент Collection №1', blank=True)
+    collection_text_2 = models.TextField('Контент Collection №2', blank=True)
+
+    collection_img_1 = models.ImageField('Картинка Collection №1', upload_to='media/design/content/', blank=True)
+    collection_img_2 = models.ImageField('Картинка Collection №2', upload_to='media/design/content/', blank=True)
+    collection_img_3 = models.ImageField('Картинка Collection №3', upload_to='media/design/content/', blank=True)
+    collection_img_4 = models.ImageField('Картинка Collection №4', upload_to='media/design/content/', blank=True)
+    collection_img_5 = models.ImageField('Картинка Collection №5', upload_to='media/design/content/', blank=True)
+
+    # объявление
+
+    index_message = models.TextField('Объявление Index', blank=True)
+    create_message = models.TextField('Объявление Create', blank=True)
+    collection_message = models.TextField('Объявление Collection', blank=True)

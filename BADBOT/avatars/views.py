@@ -5,13 +5,14 @@ from .create_image import create_img
 from .elements import get_elements
 
 from .models import Collection
+from .models import Content
 
 import random
 
 
 site_type = 'type-144'                          # тип сайта - 144 / 720
 frame_type = 2                                  # 2 - круглая рамка / 1 - квадратная
-random_list = [13, 44, 2, 19, 0, 3, 0, 0]       # стартовый набор элементов
+random_list = [13, 44, 2, 19, 0, 3, 0, 1]       # стартовый набор элементов
 
 image_ready = False
 download_ready = False
@@ -25,7 +26,11 @@ def index(request):
     """ Главная страница """
 
     title = 'Главная'
+
     global site_type
+
+    try: content = Content.objects.get(id=1)
+    except: content = ''
 
     image_elements = get_elements(random_list)
 
@@ -66,6 +71,8 @@ def index(request):
         'rare_accessoires720': image_elements[1][7],
 
         'additionally': image_elements[2],
+
+        'content': content,
     }
 
     return render(request, 'index.html', data)
@@ -82,6 +89,9 @@ def create(request):
     global random_list
     global image_ready
     global download_ready
+
+    try: content = Content.objects.get(id=1)
+    except: content = ''
 
     if not download_ready: image_ready = False
     if image_ready and download_ready: download_ready = False
@@ -196,12 +206,12 @@ def create(request):
         # Кнопка изменить редкие аксессуары
 
         if 'submit_button' in request.POST and request.POST['submit_button'] == 'a-rare-':
-            if random_list[7] == 0: random_list[7] = 10
+            if random_list[7] == 0: random_list[7] = 50
             else: random_list[7] -= 1
             return redirect('create')
 
         if 'submit_button' in request.POST and request.POST['submit_button'] == 'a-rare+':
-            if random_list[7] == 10: random_list[7] = 0
+            if random_list[7] == 50: random_list[7] = 0
             else: random_list[7] += 1
             return redirect('create')
 
@@ -209,12 +219,12 @@ def create(request):
 
         if 'submit_button' in request.POST and request.POST['submit_button'] == 'random':
 
-            random_list = [random.randint(1, x) for x in [50, 50, 50, 50, 40, 40, 40, 40]]
+            random_list = [random.randint(1, x) for x in [50, 50, 50, 50, 40, 40, 40, 50]]
 
             if random_list[4] > 10: random_list[4] = 0
             if random_list[5] > 10: random_list[5] = 0
             if random_list[6] > 10: random_list[6] = 0
-            if random_list[7] > 10: random_list[7] = 0
+            # if random_list[7] > 10: random_list[7] = 0
 
             return redirect('create')
 
@@ -286,6 +296,8 @@ def create(request):
         'additionally': image_elements[2],
         'image_in_db': image_in_db,
         'image_ready': image_ready,
+
+        'content': content,
     }
 
     return render(request, 'create.html', data)
@@ -299,6 +311,9 @@ def collection(request):
     global site_type
     global random_list
     global collection_page
+
+    try: content = Content.objects.get(id=1)
+    except: content = ''
 
     image_elements = get_elements(random_list)
 
@@ -360,6 +375,8 @@ def collection(request):
         'page_number': str(page_number) if page_number else '0',
         'bots_on_page': f'#{collection_elements[0].image_id} - #{collection_elements[-1].image_id}',
         'max_id_object': max_id_object,
+
+        'content': content,
     }
 
     return render(request, 'collection.html', data)
