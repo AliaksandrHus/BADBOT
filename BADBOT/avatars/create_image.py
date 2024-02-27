@@ -125,6 +125,9 @@ def create_img(elements, random_list):
     if name_accessoires_144_1:
         head = Image.alpha_composite(head, name_accessoires_144_1)
 
+    if random_list[6] == 5 and random_list[7] == 43:
+        head = Image.alpha_composite(head, mouth_accessoires_144_1)
+
     head = Image.alpha_composite(background_144, head)
 
     width, height = background_144.size
@@ -187,7 +190,7 @@ def create_img(elements, random_list):
     if rare_accessoires_720:
         head = Image.alpha_composite(head, rare_accessoires_720)
 
-    if random_list[1] in [21, 22, 26, 36, 34, 9]:
+    if random_list[1] in [21, 22, 26, 36, 34, 9, 16]:
         antenna = Image.composite(antenna_720_1, frame_720, mask)
         head = Image.alpha_composite(head, antenna)
     else: head = Image.alpha_composite(head, antenna_720_1)

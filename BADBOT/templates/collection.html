@@ -6,6 +6,16 @@
 
 {% block content %}
 
+{% if content.collection_message %}
+    <div class="red-message">
+        {{ content.collection_message|safe }}
+    </div>
+{% endif %}
+
+<div class="standard">
+    {{ content.collection_text_1|safe }}
+</div>
+
 <div class="pagination-up">
     <span class="step-links">
         {% if collection_elements.has_previous %}
@@ -97,9 +107,13 @@
 </div>
 
 <div class="bots_on_page">
-    <p>BADBOT on page {{ bots_on_page }}</p>
-    <p>Всего создано ботов {{ max_id_object }}</p>
+    <p>BADBOT on page {{ bots_on_page }} / tot {{ max_id_object }}</p>
 </div>
+
+<div class="standard">
+    {{ content.collection_text_2|safe }}
+</div>
+
 
 <script>
 
