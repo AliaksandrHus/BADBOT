@@ -1020,3 +1020,178 @@
     font-family: 'Exo 2', sans-serif;
     text-align: center;
 }
+
+
+/* Футер ------------------------------------------------------------- */
+
+/* Футер плашка общее */
+.rounded-box-144, .rounded-box-720 {
+    width: 1000px;
+    min-width: 1000px;
+    height: 180px;
+    padding: 20px;
+    background-color: rgb(48, 48, 48);
+    border-radius: 50px 50px 0 0;
+    text-align: left;
+    margin: 0 auto;
+    margin-top: 200px;
+    margin-bottom: -15px;
+    border-top: 3px solid white;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    box-shadow: 0 0 0 3px rgb(226, 0, 26), 0 0 0 6px white;
+    font-family: 'Exo 2', sans-serif;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Футер плашка общее 720 */
+.rounded-box-720 {
+    box-shadow: 0 0 0 3px rgb(226, 0, 26), 0 0 0 6px white;
+}
+
+/* Футер плашка общее 144 */
+.rounded-box-144 {
+    box-shadow: 0 0 0 3px rgb(0, 157, 224), 0 0 0 6px white;
+}
+
+/* Футер текст */
+.link-block p, .link-block a, .text-down p, .text-down a {
+    font-size: 12px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    text-align: justify;
+    text-justify: inter-word;
+    color: white;
+}
+
+/* Футер ссылки */
+.link-block a {
+    color: rgb(128, 128, 128);
+    text-decoration: none;
+}
+
+/* Футер ссылки при наведении */
+.link-block a:hover {
+    color: white;
+}
+
+/* Футер заголовки */
+.link-block h1, .link-block h2, .link-block h3, .link-block h4 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 14px;
+    font-size: 15px;
+    text-align: justify;
+    text-justify: inter-word;
+    color: white;
+}
+
+/* Футер заголовки */
+.link-block h4 {
+    display: inline-block;
+    margin: 0;
+}
+
+/* Футер блок заголовки */
+.link-block {
+    display: inline-block;
+    margin-left: 65px;
+    margin-top: 10px;
+}
+
+/* Футер блок ссылок */
+.link-block-small {
+    display: flex;
+    flex-direction: column;
+    vertical-align: top;
+    margin-left: 15px;
+    margin-top: 7px;
+    border-left: 1px solid gray;
+    padding-left: 10px;
+}
+
+/* Футер блок под ссылками */
+.text-down {
+    margin-left: 80px;
+    margin-top: 25px;
+    border-left: 1px solid gray;
+    padding-left: 10px;
+    padding-right: 80px;
+}
+
+/* Футер блок языка */
+.footer-languages {
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 850px;
+    background-color: rgb(29, 29, 29);
+    width: 68px;
+    height: 26px;
+    border-radius: 8px;
+
+}
+
+/* Футер блок языка - кнопки */
+.button-footer-ru, .button-footer-en {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 10px;
+    width: 30px;
+    height: 20px;
+    color: rgb(230, 230, 230);
+    border: 0px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 5px;
+    background: rgb(108, 108, 108);
+    position: absolute;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+/* Футер блок языка - кнопки */
+.button-footer-en {
+    margin-left: 35px;
+    background: rgb(29, 29, 29);
+}
+
+/* Футер блок соц сети */
+.social-media {
+    position: absolute;
+    margin-top: 135px;
+    margin-left: 835px;
+    width: 100px;
+    height: 56px;
+    border-radius: 8px;
+}
+
+/* Футер шконки соц сети */
+.button-social-instagram, .button-social-twitter {
+    background-image: url('../media/design/icons/twitter.png');
+    background-size: cover;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    border: 0px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 3px;
+    margin-left: 0px;
+}
+
+/* Футер блок соц сети */
+.button-social-twitter {
+    background-image: url('../media/design/icons/instagram.png');
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0);
+    margin-left: 45px;
+}
