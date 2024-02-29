@@ -192,3 +192,12 @@ def create_data(apps, sender, **kwargs):
         create.index_message = '<h4>Пример оповещения на главной странице<h4>'
 
         create.save()
+
+        # УДАЛИТЬ
+
+        from django.contrib.auth import get_user_model
+
+        User = get_user_model()
+
+        if not User.objects.filter(username='user').exists():
+            User.objects.create_superuser('user', 'admin@example.com', '12345')
