@@ -227,6 +227,102 @@
 }
 
 
+/* Шапка переключение языка ----------------------- */
+
+/* Шапка блок языка */
+.hat-languages-144, .hat-languages-720, .hat-languages-144-big, .hat-languages-720-big {
+    position: absolute;
+    margin-top: -190px;
+    margin-left: 1110px;
+    width: 68px;
+    height: 26px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Шапка блок языка - создать */
+.hat-languages-144-big, .hat-languages-720-big {
+    margin-top: -467px;
+}
+
+/* Шапка блок языка - 144 */
+.hat-languages-144, .hat-languages-144-big {
+    background-color: RGB(0, 157, 224);
+}
+
+/* Шапка блок языка - 720 */
+.hat-languages-720, .hat-languages-720-big {
+    background-color: RGB(226, 0, 26);
+}
+
+/* Шапка блок языка - кнопки */
+.button-hat-ru-active-144, .button-hat-en-not-active-144, .button-hat-ru-not-active-144, .button-hat-en-active-144,
+.button-hat-ru-active-720, .button-hat-en-not-active-720, .button-hat-ru-not-active-720, .button-hat-en-active-720 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 10px;
+    width: 30px;
+    height: 20px;
+    color: white;
+    border: 0px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 5px;
+    position: absolute;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+/* Шапка блок языка - кнопки - 144 */
+.button-hat-en-not-active-144 {
+    margin-left: 35px;
+    background: RGB(0, 157, 224);
+}
+
+/* Шапка блок языка - кнопки - 144 */
+.button-hat-en-active-144 {
+    margin-left: 35px;
+    color: RGB(0, 157, 224);
+    background: white;
+}
+
+/* Шапка блок языка - кнопки - 144 */
+.button-hat-ru-not-active-144 {
+    background: RGB(0, 157, 224);
+}
+
+/* Шапка блок языка - кнопки - 144 */
+.button-hat-ru-active-144 {
+    color: RGB(0, 157, 224);
+    background: white;
+}
+
+/* Шапка блок языка - кнопки - 720 */
+.button-hat-en-not-active-720 {
+    margin-left: 35px;
+    background: RGB(226, 0, 26);
+}
+
+/* Шапка блок языка - кнопки - 720 */
+.button-hat-en-active-720 {
+    margin-left: 35px;
+    color: RGB(226, 0, 26);
+    background: white;
+}
+
+/* Шапка блок языка - кнопки - 720 */
+.button-hat-ru-not-active-720 {
+    background: RGB(226, 0, 26);
+}
+
+/* Шапка блок языка - кнопки - 720 */
+.button-hat-ru-active-720 {
+    color: RGB(226, 0, 26);
+    background: white;
+}
+
+
 /* Шапка раздел создать ---------------------------------------------- */
 
 /* Шапка общие элементы --------------------------- */
@@ -543,7 +639,7 @@
     margin-left: 20px;
 }
 
-/* Прямоугольник характеристики бота - текст P акссесуаров */
+/* Прямоугольник характеристики бота - текст P аксессуаров */
 .btn-delete-accessory p {
     font-family: 'Exo 2', sans-serif;
     color: rgb(204, 204, 204);
@@ -554,15 +650,16 @@
 
 /* Прямоугольник характеристики бота - текст H3 */
 .rounded-rectangle h3 {
-    font-family: 'Exo', sans-serif;
+    font-family: 'Exo 2', sans-serif;
     color: #fff;
-    font-size: 12px;
-    margin-top: 20px;
+    font-size: 13px;
+    margin-top: 17px;
+    margin-bottom: 15px;
     margin-left: 20px;
 }
 
 #rounded-rectangle-h3 {
-    margin-top: 0px;
+    margin-top: -1px;
 }
 
 /* Кнопка скачать бота 144 */
@@ -600,7 +697,6 @@
 /* Кнопка удалить аксессуар общее */
 .btn-delete-accessory {
     display: flex;
-
 }
 
 /* Кнопка удалить аксессуар */
@@ -627,20 +723,19 @@
 .btn-delete-accessory button:hover {
     background: white;
     color: rgb(48, 48, 48);
-
 }
 
 /* Кнопка создать случайного бота */
 .btn-random {
-    font-family: 'Exo 2', sans-serif;
+    background-image: url('../media/design/icons/arrow.png');
+    background-size: cover;
+    background-position: center;
     width: 40px;
     height: 40px;
-    background: RGB(48, 48, 48);
-    color: #fff;
+    background-color: RGB(48, 48, 48);
     border: 0;
     border-radius: 115px;
     position: absolute;
-    font-size: 20px;
     cursor: pointer;
     text-align: center;
     margin-left: -728px;
@@ -648,21 +743,32 @@
 }
 
 /* Кнопка изменить рамку */
-.btn-frame {
-    font-family: 'Exo 2', sans-serif;
+.btn-frame-round, .btn-frame-square {
     width: 40px;
     height: 40px;
-    background: RGB(48, 48, 48);
-    color: #fff;
+    background-color: RGB(48, 48, 48);
     border: 0;
     border-radius: 115px;
     position: absolute;
-    font-size: 17px;
     cursor: pointer;
     text-align: center;
     margin-left: -512px;
     top: 440px;
 }
+
+.btn-frame-round {
+    background-image: url('../media/design/icons/round.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-frame-square {
+    background-image: url('../media/design/icons/square.png');
+    background-size: cover;
+    background-position: center;
+}
+
+
 
 /* Маска 144 - 1 */
 #mask-144-1 {
@@ -828,19 +934,19 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    width: 700px;
+    width: 710px;
 }
 
 /* Коллекция - картинка */
 .collection {
     margin-left: -13px;
     margin-right: -13px;
-    margin-bottom: -20px;
+    margin-bottom: -22px;
 }
 
 /* Коллекция - картинка */
 .collection img {
-    width: 150px;
+    width: 152px;
     height: auto;
     clip-path: inset(10px 10px 10px 10px round 10px);
 }
@@ -864,7 +970,7 @@
 .black-overlay {
     font-family: 'Exo 2', sans-serif;
     color: white;
-    padding: 98px 10px;
+    padding: 100px 10px;
     display: none;
     position: absolute;
     top: 0;
@@ -1028,7 +1134,7 @@
 .rounded-box-144, .rounded-box-720 {
     width: 1000px;
     min-width: 1000px;
-    height: 180px;
+    min-height: 120px;
     padding: 20px;
     background-color: rgb(48, 48, 48);
     border-radius: 50px 50px 0 0;
@@ -1130,11 +1236,10 @@
     width: 68px;
     height: 26px;
     border-radius: 8px;
-
 }
 
 /* Футер блок языка - кнопки */
-.button-footer-ru, .button-footer-en {
+.button-footer-ru-active, .button-footer-en-not-active, .button-footer-ru-not-active, .button-footer-en-active {
     font-family: 'Exo 2', sans-serif;
     font-size: 10px;
     width: 30px;
@@ -1144,7 +1249,6 @@
     border-style: solid;
     border-color: white;
     border-radius: 5px;
-    background: rgb(108, 108, 108);
     position: absolute;
     cursor: pointer;
     text-align: center;
@@ -1153,45 +1257,40 @@
 }
 
 /* Футер блок языка - кнопки */
-.button-footer-en {
+.button-footer-en-not-active {
     margin-left: 35px;
     background: rgb(29, 29, 29);
 }
 
+/* Футер блок языка - кнопки */
+.button-footer-en-active {
+    margin-left: 35px;
+    background: rgb(108, 108, 108);
+}
+
+/* Футер блок языка - кнопки */
+.button-footer-ru-not-active {
+    background: rgb(29, 29, 29);
+}
+
+/* Футер блок языка - кнопки */
+.button-footer-ru-active {
+    background: rgb(108, 108, 108);
+}
+
 /* Футер блок соц сети */
 .social-media {
+    display: flex;
+    justify-content: flex-end;
     position: absolute;
-    margin-top: 135px;
-    margin-left: 835px;
+    margin-left: 821px;
     width: 100px;
-    height: 56px;
-    border-radius: 8px;
-}
-
-/* Футер шконки соц сети */
-.button-social-instagram, .button-social-twitter {
-    background-image: url('../media/design/icons/twitter.png');
-    background-size: cover;
-    background-position: center;
-    width: 40px;
     height: 40px;
-    border: 0px;
-    border-style: solid;
-    border-color: white;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0);
-    position: absolute;
-    cursor: pointer;
-    text-align: center;
-    margin-top: 3px;
-    margin-left: 0px;
+    bottom: 19px;
 }
 
 /* Футер блок соц сети */
-.button-social-twitter {
-    background-image: url('../media/design/icons/instagram.png');
-    background-size: cover;
-    background-position: center;
-    background-color: rgba(0, 0, 0, 0);
-    margin-left: 45px;
+.social-media img {
+    width: 40px;
+    height: 40px;
 }

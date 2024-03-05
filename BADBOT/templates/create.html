@@ -56,7 +56,7 @@
 
         <form method="post">
             {% csrf_token %}
-            <button class="btn-frame" type="submit" name="submit_button" value="frame">◯</button>
+            <button class="btn-frame-round" type="submit" name="submit_button" value="frame"></button>
         </form>
 
     {% else %}
@@ -68,10 +68,40 @@
 
         <form method="post">
             {% csrf_token %}
-            <button class="btn-frame" type="submit" name="submit_button" value="frame">▢</button>
+            <button class="btn-frame-square" type="submit" name="submit_button" value="frame"></button>
         </form>
 
     {% endif %}
+
+    <div class="hat-languages-144-big">
+
+        {% if language == 'ru' %}
+
+            <form method="post">
+                {% csrf_token %}
+                <button class="button-hat-ru-active-144" type="submit" name="submit_button" value="language_ru">RU</button>
+            </form>
+
+            <form method="post">
+                {% csrf_token %}
+                <button class="button-hat-en-not-active-144" type="submit" name="submit_button" value="language_en">EN</button>
+            </form>
+
+        {% else %}
+
+            <form method="post">
+                {% csrf_token %}
+                <button class="button-hat-ru-not-active-144" type="submit" name="submit_button" value="language_ru">RU</button>
+            </form>
+
+            <form method="post">
+                {% csrf_token %}
+                <button class="button-hat-en-active-144" type="submit" name="submit_button" value="language_en">EN</button>
+            </form>
+
+        {% endif %}
+
+    </div>
 
 </div>
 
@@ -150,7 +180,7 @@ document.getElementById("act_144_button-720-big").addEventListener("mouseout", f
 
         <form method="post">
             {% csrf_token %}
-            <button class="btn-frame" type="submit" name="submit_button" value="frame">◯</button>
+            <button class="btn-frame-round" type="submit" name="submit_button" value="frame"></button>
         </form>
 
     {% else %}
@@ -161,10 +191,40 @@ document.getElementById("act_144_button-720-big").addEventListener("mouseout", f
 
         <form method="post">
             {% csrf_token %}
-            <button class="btn-frame" type="submit" name="submit_button" value="frame">▢</button>
+            <button class="btn-frame-square" type="submit" name="submit_button" value="frame"></button>
         </form>
 
     {% endif %}
+
+    <div class="hat-languages-720-big">
+
+        {% if language == 'ru' %}
+
+            <form method="post">
+                {% csrf_token %}
+                <button class="button-hat-ru-active-720" type="submit" name="submit_button" value="language_ru">RU</button>
+            </form>
+
+            <form method="post">
+                {% csrf_token %}
+                <button class="button-hat-en-not-active-720" type="submit" name="submit_button" value="language_en">EN</button>
+            </form>
+
+        {% else %}
+
+            <form method="post">
+                {% csrf_token %}
+                <button class="button-hat-ru-not-active-720" type="submit" name="submit_button" value="language_ru">RU</button>
+            </form>
+
+            <form method="post">
+                {% csrf_token %}
+                <button class="button-hat-en-active-720" type="submit" name="submit_button" value="language_en">EN</button>
+            </form>
+
+        {% endif %}
+
+    </div>
 
 </div>
 
@@ -204,13 +264,26 @@ document.getElementById("act_720_button-144-big").addEventListener("mouseout", f
 
 {% endif %}
 
-<div class="menu">
-    <a href="{% url 'index' %}">ПРОЕКТ</a>
-    <a href="{% url 'create' %}">СОЗДАТЬ</a>
-    <a href="{% url 'collection' %}">ГОТОВЫЕ</a>
-</div>
+    {% if language == 'ru' %}
+
+        <div class="menu">
+            <a href="{% url 'index' %}">ПРОЕКТ</a>
+            <a href="{% url 'create' %}">КОНСТРУКТОР</a>
+            <a href="{% url 'collection' %}">ГОТОВЫЕ</a>
+        </div>
+
+    {% else %}
+
+        <div class="menu">
+            <a href="{% url 'index' %}">PROJECT</a>
+            <a href="{% url 'create' %}">CONSTRUCTOR</a>
+            <a href="{% url 'collection' %}">CREATED</a>
+        </div>
+
+    {% endif %}
 
 <main>
+
     {% block content %}
 
         {% if image_ready %}
@@ -247,18 +320,31 @@ document.getElementById("act_720_button-144-big").addEventListener("mouseout", f
 
     {% endblock %}
 
-{% if content.create_message %}
-    <div class="red-message">
-        {{ content.create_message|safe }}
+    {% if content.create_message_ru %}
+
+        <div class="red-message">
+            {% if language == 'ru' %}
+                {{ content.create_message_ru|safe }}
+            {% else %}
+                {{ content.create_message_en|safe }}
+            {% endif %}
+        </div>
+
+    {% endif %}
+
+    <div class="standard">
+
+        {% if language == 'ru' %}
+            {{ content.create_text_1_ru|safe }}
+            {{ content.create_text_2_ru|safe }}
+        {% else %}
+            {{ content.create_text_1_en|safe }}
+            {{ content.create_text_2_en|safe }}
+        {% endif %}
+
     </div>
-{% endif %}
 
-<div class="standard">
-    {{ content.create_text_1|safe }}
-    {{ content.create_text_2|safe }}
-</div>
-
-{% include "footer.html" %}
+    {% include "footer.html" %}
 
 </main>
 
