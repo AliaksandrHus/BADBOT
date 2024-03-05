@@ -61,6 +61,36 @@
                 </button>
         </form>
 
+        <div class="hat-languages-144">
+
+            {% if language == 'ru' %}
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button class="button-hat-ru-active-144" type="submit" name="submit_button" value="language_ru">RU</button>
+                </form>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button class="button-hat-en-not-active-144" type="submit" name="submit_button" value="language_en">EN</button>
+                </form>
+
+            {% else %}
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button class="button-hat-ru-not-active-144" type="submit" name="submit_button" value="language_ru">RU</button>
+                </form>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button class="button-hat-en-active-144" type="submit" name="submit_button" value="language_en">EN</button>
+                </form>
+
+            {% endif %}
+
+        </div>
+
     </div>
 
 
@@ -143,6 +173,36 @@
                 </button>
         </form>
 
+        <div class="hat-languages-720">
+
+            {% if language == 'ru' %}
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button class="button-hat-ru-active-720" type="submit" name="submit_button" value="language_ru">RU</button>
+                </form>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button class="button-hat-en-not-active-720" type="submit" name="submit_button" value="language_en">EN</button>
+                </form>
+
+            {% else %}
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button class="button-hat-ru-not-active-720" type="submit" name="submit_button" value="language_ru">RU</button>
+                </form>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button class="button-hat-en-active-720" type="submit" name="submit_button" value="language_en">EN</button>
+                </form>
+
+            {% endif %}
+
+        </div>
+
     </div>
 
     <script>
@@ -181,11 +241,23 @@
 
 {% endif %}
 
-    <div class="menu">
-        <a href="{% url 'index' %}">ПРОЕКТ</a>
-        <a href="{% url 'create' %}">СОЗДАТЬ</a>
-        <a href="{% url 'collection' %}">ГОТОВЫЕ</a>
-    </div>
+    {% if language == 'ru' %}
+
+        <div class="menu">
+            <a href="{% url 'index' %}">ПРОЕКТ</a>
+            <a href="{% url 'create' %}">КОНСТРУКТОР</a>
+            <a href="{% url 'collection' %}">ГОТОВЫЕ</a>
+        </div>
+
+    {% else %}
+
+        <div class="menu">
+            <a href="{% url 'index' %}">PROJECT</a>
+            <a href="{% url 'create' %}">CONSTRUCTOR</a>
+            <a href="{% url 'collection' %}">CREATED</a>
+        </div>
+
+    {% endif %}
 
     <main>
         {% block content %}

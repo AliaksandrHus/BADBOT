@@ -7,39 +7,163 @@
 
     <div class="footer-languages">
 
-        <button class="button-footer-ru">RU</button>
-        <button class="button-footer-en">EN</button>
+        {% if language == 'ru' %}
+
+            <form method="post">
+                {% csrf_token %}
+                <button class="button-footer-ru-active" type="submit" name="submit_button" value="language_ru">RU</button>
+            </form>
+
+            <form method="post">
+                {% csrf_token %}
+                <button class="button-footer-en-not-active" type="submit" name="submit_button" value="language_en">EN</button>
+            </form>
+
+        {% else %}
+
+            <form method="post">
+                {% csrf_token %}
+                <button class="button-footer-ru-not-active" type="submit" name="submit_button" value="language_ru">RU</button>
+            </form>
+
+            <form method="post">
+                {% csrf_token %}
+                <button class="button-footer-en-active" type="submit" name="submit_button" value="language_en">EN</button>
+            </form>
+
+        {% endif %}
 
     </div>
 
     <div class="social-media">
 
-        <button class="button-social-twitter"></button>
-        <button class="button-social-instagram"></button>
+        {% if footer.link_1 %}
+            <a href="{{ footer.link_1 }}" target="_blank"><img src="{{ footer.icon_1.url }}"></a>
+        {% endif %}
+
+        {% if footer.link_2 %}
+            <a href="{{ footer.link_2 }}" target="_blank"><img src="{{ footer.icon_2.url }}"></a>
+        {% endif %}
+
+        {% if footer.link_3 %}
+            <a href="{{ footer.link_3 }}" target="_blank"><img src="{{ footer.icon_3.url }}"></a>
+        {% endif %}
+
+        {% if footer.link_4 %}
+            <a href="{{ footer.link_4 }}" target="_blank"><img src="{{ footer.icon_4.url }}"></a>
+        {% endif %}
+
+        {% if footer.link_5 %}
+            <a href="{{ footer.link_5 }}" target="_blank"><img src="{{ footer.icon_5.url }}"></a>
+        {% endif %}
+
+        {% if footer.link_6 %}
+            <a href="{{ footer.link_6 }}" target="_blank"><img src="{{ footer.icon_6.url }}"></a>
+        {% endif %}
+
 
     </div>
 
-    <div class="link-block">
-        <h2>Ссылки</h2>
-            <div class="link-block-small">
-                <a href="http://127.0.0.1:8000/create/" target="_blank">Коллекция NFT Badbot 144p</a>
-                <a href="http://127.0.0.1:8000/create/" target="_blank">Коллекция NFT Badbot 720p</a>
-                <a href="http://127.0.0.1:8000/create/" target="_blank">Сообщество Twitter</a>
-                <a href="http://127.0.0.1:8000/create/" target="_blank">Сообщество Instagram</a>
+    {% if language == 'ru' %}
+
+        {% if footer.footer_box_1_name_ru %}
+            <div class="link-block">
+                <h2>{{ footer.footer_box_1_name_ru }}</h2>
+                    <div class="link-block-small">
+                        {{ footer.footer_link_1_1_ru|safe }}
+                        {{ footer.footer_link_1_2_ru|safe }}
+                        {{ footer.footer_link_1_3_ru|safe }}
+                        {{ footer.footer_link_1_4_ru|safe }}
+                        {{ footer.footer_link_1_5_ru|safe }}
+                        {{ footer.footer_link_1_6_ru|safe }}
+                    </div>
             </div>
-    </div>
+        {% endif %}
 
-    <div class="link-block">
-        <h2>Информация</h2>
-            <div class="link-block-small">
-                <a href="http://127.0.0.1:8000/create/" target="_blank">Об авторе</a>
-                <a href="http://127.0.0.1:8000/create/" target="_blank">Instagram</a>
+        {% if footer.footer_box_2_name_ru %}
+            <div class="link-block">
+                <h2>{{ footer.footer_box_2_name_ru }}</h2>
+                    <div class="link-block-small">
+                        {{ footer.footer_link_2_1_ru|safe }}
+                        {{ footer.footer_link_2_2_ru|safe }}
+                        {{ footer.footer_link_2_3_ru|safe }}
+                        {{ footer.footer_link_2_4_ru|safe }}
+                        {{ footer.footer_link_2_5_ru|safe }}
+                        {{ footer.footer_link_2_6_ru|safe }}
+                    </div>
             </div>
-    </div>
+        {% endif %}
 
-    <div class="text-down">
-        <p>По всем вопросам обращайтесь по адресу art-sonik@mail.ru или пишите в социальных сетях проекта</p>
-        <p>BADBOT 2024</p>
-    </div>
+        {% if footer.footer_box_3_name_ru %}
+            <div class="link-block">
+                <h2>{{ footer.footer_box_3_name_ru }}</h2>
+                    <div class="link-block-small">
+                        {{ footer.footer_link_3_1_ru|safe }}
+                        {{ footer.footer_link_3_2_ru|safe }}
+                        {{ footer.footer_link_3_3_ru|safe }}
+                        {{ footer.footer_link_3_4_ru|safe }}
+                        {{ footer.footer_link_3_5_ru|safe }}
+                        {{ footer.footer_link_3_6_ru|safe }}
+                    </div>
+            </div>
+        {% endif %}
+
+
+        <div class="text-down">
+            <p>{{ footer.text_1_ru }}</p>
+            <p>{{ footer.text_2_ru }}</p>
+        </div>
+
+    {% else %}
+
+        {% if footer.footer_box_1_name_en %}
+            <div class="link-block">
+                <h2>{{ footer.footer_box_1_name_en }}</h2>
+                    <div class="link-block-small">
+                        {{ footer.footer_link_1_1_en|safe }}
+                        {{ footer.footer_link_1_2_en|safe }}
+                        {{ footer.footer_link_1_3_en|safe }}
+                        {{ footer.footer_link_1_4_en|safe }}
+                        {{ footer.footer_link_1_5_en|safe }}
+                        {{ footer.footer_link_1_6_en|safe }}
+                    </div>
+            </div>
+        {% endif %}
+
+        {% if footer.footer_box_2_name_en %}
+            <div class="link-block">
+                <h2>{{ footer.footer_box_2_name_en }}</h2>
+                    <div class="link-block-small">
+                        {{ footer.footer_link_2_1_en|safe }}
+                        {{ footer.footer_link_2_2_en|safe }}
+                        {{ footer.footer_link_2_3_en|safe }}
+                        {{ footer.footer_link_2_4_en|safe }}
+                        {{ footer.footer_link_2_5_en|safe }}
+                        {{ footer.footer_link_2_6_en|safe }}
+                    </div>
+            </div>
+        {% endif %}
+
+        {% if footer.footer_box_3_name_en %}
+            <div class="link-block">
+                <h2>{{ footer.footer_box_3_name_en }}</h2>
+                    <div class="link-block-small">
+                        {{ footer.footer_link_3_1_en|safe }}
+                        {{ footer.footer_link_3_2_en|safe }}
+                        {{ footer.footer_link_3_3_en|safe }}
+                        {{ footer.footer_link_3_4_en|safe }}
+                        {{ footer.footer_link_3_5_en|safe }}
+                        {{ footer.footer_link_3_6_en|safe }}
+                    </div>
+            </div>
+        {% endif %}
+
+
+        <div class="text-down">
+            <p>{{ footer.text_1_en }}</p>
+            <p>{{ footer.text_2_en }}</p>
+        </div>
+
+    {% endif %}
 
 </div>

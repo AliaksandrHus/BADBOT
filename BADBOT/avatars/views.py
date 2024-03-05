@@ -5,12 +5,13 @@ from .create_image import create_img
 from .elements import get_elements
 
 from .models import Collection
-from .models import Content
+from .models import Content, Footer
 
 import random
 
 
 site_type = 'type-144'                          # тип сайта - 144 / 720
+language = ''                                   #
 frame_type = 2                                  # 2 - круглая рамка / 1 - квадратная
 random_list = [13, 44, 2, 19, 0, 3, 0, 1]       # стартовый набор элементов
 
@@ -28,9 +29,15 @@ def index(request):
     title = 'Главная'
 
     global site_type
+    global language
+
+    if not language: language = request.META.get('HTTP_ACCEPT_LANGUAGE', 'en')[:2].lower()
 
     try: content = Content.objects.get(id=1)
     except: content = ''
+
+    try: footer = Footer.objects.get(id=1)
+    except: footer = ''
 
     image_elements = get_elements(random_list)
 
@@ -46,9 +53,20 @@ def index(request):
             site_type = 'type-720'
             return redirect('index')
 
+        # Кнопка изменения языка
+
+        if 'submit_button' in request.POST and request.POST['submit_button'] == 'language_ru':
+            language = 'ru'
+            return redirect('index')
+
+        if 'submit_button' in request.POST and request.POST['submit_button'] == 'language_en':
+            language = 'en'
+            return redirect('index')
+
     data = {
         'title': title,
         'site_type': site_type,
+        'language': language,
 
         'frame_type': frame_type,
 
@@ -73,6 +91,7 @@ def index(request):
         'additionally': image_elements[2],
 
         'content': content,
+        'footer': footer,
     }
 
     return render(request, 'index.html', data)
@@ -89,9 +108,15 @@ def create(request):
     global random_list
     global image_ready
     global download_ready
+    global language
+
+    if not language: language = request.META.get('HTTP_ACCEPT_LANGUAGE', 'en')[:2].lower()
 
     try: content = Content.objects.get(id=1)
     except: content = ''
+
+    try: footer = Footer.objects.get(id=1)
+    except: footer = ''
 
     if not download_ready: image_ready = False
     if image_ready and download_ready: download_ready = False
@@ -268,10 +293,21 @@ def create(request):
             download_ready = True
             return redirect('create')
 
+        # Кнопка изменения языка
+
+        if 'submit_button' in request.POST and request.POST['submit_button'] == 'language_ru':
+            language = 'ru'
+            return redirect('create')
+
+        if 'submit_button' in request.POST and request.POST['submit_button'] == 'language_en':
+            language = 'en'
+            return redirect('create')
+
     data = {
 
         'title': title,
         'site_type': site_type,
+        'language': language,
 
         'frame_type': frame_type,
 
@@ -298,6 +334,7 @@ def create(request):
         'image_ready': image_ready,
 
         'content': content,
+        'footer': footer,
     }
 
     return render(request, 'create.html', data)
@@ -311,9 +348,15 @@ def collection(request):
     global site_type
     global random_list
     global collection_page
+    global language
+
+    if not language: language = request.META.get('HTTP_ACCEPT_LANGUAGE', 'en')[:2].lower()
 
     try: content = Content.objects.get(id=1)
     except: content = ''
+
+    try: footer = Footer.objects.get(id=1)
+    except: footer = ''
 
     image_elements = get_elements(random_list)
 
@@ -344,10 +387,21 @@ def collection(request):
             random_list = list(map(int, request.POST['elements'].split('-')))
             return redirect('create')
 
+        # Кнопка изменения языка
+
+        if 'submit_button' in request.POST and request.POST['submit_button'] == 'language_ru':
+            language = 'ru'
+            return redirect('collection')
+
+        if 'submit_button' in request.POST and request.POST['submit_button'] == 'language_en':
+            language = 'en'
+            return redirect('collection')
+
     data = {
 
         'title': title,
         'site_type': site_type,
+        'language': language,
 
         'frame_type': frame_type,
 
@@ -377,6 +431,7 @@ def collection(request):
         'max_id_object': max_id_object,
 
         'content': content,
+        'footer': footer,
     }
 
     return render(request, 'collection.html', data)

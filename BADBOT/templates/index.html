@@ -5,15 +5,28 @@
 
 {% block content %}
 
-{% if content.index_message %}
+{% if content.index_message_ru %}
+
     <div class="red-message">
-        {{ content.index_message|safe }}
+        {% if language == 'ru' %}
+            {{ content.index_message_ru|safe }}
+        {% else %}
+            {{ content.index_message_en|safe }}
+        {% endif %}
     </div>
+
 {% endif %}
 
 <div class="standard">
-    {{ content.index_text_1|safe }}
-    {{ content.index_text_2|safe }}
+
+    {% if language == 'ru' %}
+        {{ content.index_text_1_ru|safe }}
+        {{ content.index_text_2_ru|safe }}
+    {% else %}
+        {{ content.index_text_1_en|safe }}
+        {{ content.index_text_2_en|safe }}
+    {% endif %}
+
 </div>
 
 

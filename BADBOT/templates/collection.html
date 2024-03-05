@@ -6,14 +6,26 @@
 
 {% block content %}
 
-{% if content.collection_message %}
+{% if content.collection_message_ru %}
+
     <div class="red-message">
-        {{ content.collection_message|safe }}
+        {% if language == 'ru' %}
+            {{ content.collection_message_ru|safe }}
+        {% else %}
+            {{ content.collection_message_en|safe }}
+        {% endif %}
     </div>
+
 {% endif %}
 
 <div class="standard">
-    {{ content.collection_text_1|safe }}
+
+    {% if language == 'ru' %}
+        {{ content.collection_text_1_ru|safe }}
+    {% else %}
+        {{ content.collection_text_1_en|safe }}
+    {% endif %}
+
 </div>
 
 <div class="pagination-up">
@@ -107,11 +119,27 @@
 </div>
 
 <div class="bots_on_page">
-    <p>BADBOT on page {{ bots_on_page }} / tot {{ max_id_object }}</p>
+
+    {% if language == 'ru' %}
+
+        <p>BADBOT на странице {{ bots_on_page }} / всего {{ max_id_object }}</p>
+
+    {% else %}
+
+        <p>BADBOT on page {{ bots_on_page }} / tot {{ max_id_object }}</p>
+
+    {% endif %}
+
 </div>
 
 <div class="standard">
-    {{ content.collection_text_2|safe }}
+
+    {% if language == 'ru' %}
+        {{ content.collection_text_2_ru|safe }}
+    {% else %}
+        {{ content.collection_text_2_en|safe }}
+    {% endif %}
+
 </div>
 
 
