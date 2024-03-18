@@ -133,9 +133,9 @@ def create_img(elements, random_list):
     width, height = background_144.size
     new_image = Image.new('RGBA', (width, height), color=(255, 255, 255, 0))
     new_image.paste(head, (0, 0), head)
-    new_image.save(f'media/image/created/144/144_{new_image_db.image_id}_{new_image_db.elements_id}.png')
+    new_image.save(f'media/image/created/144/{new_image_db.image_id}_144_{new_image_db.elements_id}.png')
 
-    new_image_db.image144 = f'media/image/created/144/144_{new_image_db.image_id}_{new_image_db.elements_id}.png'
+    new_image_db.image144 = f'media/image/created/144/{new_image_db.image_id}_144_{new_image_db.elements_id}.png'
 
     new_image_db.save()
 
@@ -220,9 +220,9 @@ def create_img(elements, random_list):
     width, height = background_720.size
     new_image = Image.new('RGBA', (width, height), color=(255, 255, 255, 0))
     new_image.paste(head, (0, 0), head)
-    new_image.save(f'media/image/created/720/720_{new_image_db.image_id}_{new_image_db.elements_id}.png')
+    new_image.save(f'media/image/created/720/{new_image_db.image_id}_720_{new_image_db.elements_id}.png')
 
-    new_image_db.image720 = f'media/image/created/720/720_{new_image_db.image_id}_{new_image_db.elements_id}.png'
+    new_image_db.image144 = f'media/image/created/720/{new_image_db.image_id}_720_{new_image_db.elements_id}.png'
 
     new_image_db.save()
 

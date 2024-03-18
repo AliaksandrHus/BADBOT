@@ -19,6 +19,16 @@
 
 <div class="standard">
 
+    <h3>Привет!</h3>
+    <h4>Дру, у нас кое что есть для тебя!</h4>
+
+    {% if site_type == 'type-144' %}
+        <div class="parallax-index-144"></div>
+    {% else %}
+        <div class="parallax-index-720"></div>
+    {% endif %}
+
+
     {% if language == 'ru' %}
         {{ content.index_text_1_ru|safe }}
         {{ content.index_text_2_ru|safe }}

@@ -40,6 +40,81 @@
     width: 110px;
 }
 
+/* Шапка фон-паралакс min */
+.parallax-hat-144-min, .parallax-hat-720-min {
+  height: 222px;
+  width: 1187px;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+  position: absolute;
+  top: 16px;
+  border-radius: 0 0 87px 87px;
+  background-size: 1200px;
+  background-position: center 0px;
+}
+
+/* Шапка фон-паралакс min 144 */
+.parallax-hat-144-min {
+  background-image: url('../media/design/hat/144-bw.png');
+}
+
+/* Шапка фон-паралакс min 720 */
+.parallax-hat-720-min {
+  background-image: url('../media/design/hat/720-bw.png');
+}
+
+/* Шапка фон-паралакс max */
+.parallax-hat-144-max, .parallax-hat-720-max {
+  height: 498px;
+  width: 1187px;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+  position: absolute;
+  top: 16px;
+  border-radius: 0 0 87px 87px;
+  background-size: 1200px;
+  background-position: center 0px;
+}
+
+/* Шапка фон-паралакс max 144 */
+.parallax-hat-144-max {
+  background-image: url('../media/design/hat/144-bw.png');
+}
+
+/* Шапка фон-паралакс max 720 */
+.parallax-hat-720-max {
+  background-image: url('../media/design/hat/720-bw.png');
+}
+
+/* Шапка фон-паралакс min 144 */
+.parallax-index-144 {
+  height: 150px;
+  width: 1000px;
+  margin-left: -150px;
+  background-image: url('../media/design/hat/144-color.png');
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+  border-radius: 20px;
+  background-size: 1200px;
+  background-position: center 0px;
+}
+
+/* Шапка фон-паралакс min 720 */
+.parallax-index-720 {
+  height: 150px;
+  width: 1000px;
+  margin-left: -150px;
+  background-image: url('../media/design/hat/720-color.png');
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+  border-radius: 20px;
+  background-size: 1200px;
+  background-position: center 0px;
+}
 
 /* Шапка лого-картинка ---------------------------- */
 
@@ -1056,29 +1131,9 @@
 }
 
 /* Пагинация кнопки */
-.active-pagination-small-btn-l {
-    padding-bottom: 2px;
-}
-
-/* Пагинация кнопки */
-.active-pagination-small-btn-r {
-    padding-top: 2px;
-}
-
-/* Пагинация кнопки */
 .active-pagination-big-btn-l, .active-pagination-big-btn-r {
     width: 20px;
     height: 20px;
-}
-
-/* Пагинация кнопки */
-.active-pagination-big-btn-l {
-    font-size: 8px;
-}
-
-/* Пагинация кнопки */
-.active-pagination-big-btn-r {
-    font-size: 8px;
 }
 
 /* Пагинация не активные кнопки */
@@ -1096,13 +1151,16 @@
 }
 
 /* Пагинация кнопки */
-.pagination-small-btn-l {
-    padding-bottom: 2px;
-}
+.pagination-small-btn-l, .active-pagination-small-btn-l {
+    background-image: url('../media/design/icons/back.png');
+    background-size: cover;
+    background-position: center;}
 
 /* Пагинация кнопки */
-.pagination-small-btn-r {
-    padding-top: 2px;
+.pagination-small-btn-r, .active-pagination-small-btn-r {
+    background-image: url('../media/design/icons/forward.png');
+    background-size: cover;
+    background-position: center;
 }
 
 /* Пагинация кнопки */
@@ -1119,6 +1177,20 @@
 /* Пагинация кнопки */
 .pagination-big-btn-r {
     font-size: 8px;
+}
+
+/* Пагинация кнопки */
+.active-pagination-big-btn-l, .pagination-big-btn-l {
+    background-image: url('../media/design/icons/min.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Пагинация кнопки */
+.active-pagination-big-btn-r, .pagination-big-btn-r {
+    background-image: url('../media/design/icons/max.png');
+    background-size: cover;
+    background-position: center;
 }
 
 /* Пагинация - вывод инфо */
