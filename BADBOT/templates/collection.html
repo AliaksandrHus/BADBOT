@@ -31,11 +31,11 @@
 <div class="pagination-up">
     <span class="step-links">
         {% if collection_elements.has_previous %}
-            <button class="active-pagination-big-btn-l" onclick="location.href='?page=1'" style="cursor: pointer;">❮❮</button>
-            <button class="active-pagination-small-btn-l" onclick="location.href='?page={{ collection_elements.previous_page_number }}'" style="cursor: pointer;">-</button>
+            <button class="active-pagination-big-btn-l" onclick="location.href='?page=1'" style="cursor: pointer;"></button>
+            <button class="active-pagination-small-btn-l" onclick="location.href='?page={{ collection_elements.previous_page_number }}'" style="cursor: pointer;"></button>
         {% else %}
-            <button class="pagination-big-btn-l">❮❮</button>
-            <button class="pagination-small-btn-l">-</button>
+            <button class="pagination-big-btn-l"></button>
+            <button class="pagination-small-btn-l"></button>
         {% endif %}
 
         <span class="currentUP">
@@ -43,11 +43,11 @@
         </span>
 
         {% if collection_elements.has_next %}
-            <button class="active-pagination-small-btn-r" onclick="location.href='?page={{ collection_elements.next_page_number }}'" style="cursor: pointer;">+</button>
-            <button class="active-pagination-big-btn-r" onclick="location.href='?page={{ collection_elements.paginator.num_pages }}'" style="cursor: pointer;">❯❯</button>
+            <button class="active-pagination-small-btn-r" onclick="location.href='?page={{ collection_elements.next_page_number }}'" style="cursor: pointer;"></button>
+            <button class="active-pagination-big-btn-r" onclick="location.href='?page={{ collection_elements.paginator.num_pages }}'" style="cursor: pointer;"></button>
         {% else %}
-            <button class="pagination-small-btn-r" >+</button>
-            <button class="pagination-big-btn-r" >❯❯</button>
+            <button class="pagination-small-btn-r" ></button>
+            <button class="pagination-big-btn-r" ></button>
         {% endif %}
     </span>
 </div>
@@ -97,11 +97,11 @@
 <div class="pagination-down">
     <span class="step-links">
         {% if collection_elements.has_previous %}
-            <button class="active-pagination-big-btn-l" onclick="location.href='?page=1'" style="cursor: pointer;">❮❮</button>
-            <button class="active-pagination-small-btn-l" onclick="location.href='?page={{ collection_elements.previous_page_number }}'" style="cursor: pointer;">-</button>
+            <button class="active-pagination-big-btn-l" onclick="location.href='?page=1'" style="cursor: pointer;"></button>
+            <button class="active-pagination-small-btn-l" onclick="location.href='?page={{ collection_elements.previous_page_number }}'" style="cursor: pointer;"></button>
         {% else %}
-            <button class="pagination-big-btn-l">❮❮</button>
-            <button class="pagination-small-btn-l">-</button>
+            <button class="pagination-big-btn-l"></button>
+            <button class="pagination-small-btn-l"></button>
         {% endif %}
 
         <span class="currentDOWN">
@@ -109,11 +109,11 @@
         </span>
 
         {% if collection_elements.has_next %}
-            <button class="active-pagination-small-btn-r" onclick="location.href='?page={{ collection_elements.next_page_number }}'" style="cursor: pointer;">+</button>
-            <button class="active-pagination-big-btn-r" onclick="location.href='?page={{ collection_elements.paginator.num_pages }}'" style="cursor: pointer;">❯❯</button>
+            <button class="active-pagination-small-btn-r" onclick="location.href='?page={{ collection_elements.next_page_number }}'" style="cursor: pointer;"></button>
+            <button class="active-pagination-big-btn-r" onclick="location.href='?page={{ collection_elements.paginator.num_pages }}'" style="cursor: pointer;"></button>
         {% else %}
-            <button class="pagination-small-btn-r" >+</button>
-            <button class="pagination-big-btn-r" >❯❯</button>
+            <button class="pagination-small-btn-r" ></button>
+            <button class="pagination-big-btn-r" ></button>
         {% endif %}
     </span>
 </div>
